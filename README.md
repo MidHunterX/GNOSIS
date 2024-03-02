@@ -19,11 +19,12 @@ Remove ENV directory if it already exists then recreate virtual environment:
 python -m venv ENV
 ./ENV/Scripts/activate.bat
 pip install django
+pip install -r requirements.txt
 ```
 
 ## Running Project
 
-Activate virtual environment:
+cd into this project and Activate virtual environment:
 
 ```sh
 # Powershell
@@ -40,4 +41,17 @@ Run server:
 
 ```
 python manage.py runserver
+```
+
+## Refresh
+
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+## Closing Project
+
+```
+deactivate
 ```
