@@ -29,7 +29,6 @@ python -m venv ENV
 
 ```sh
 ./ENV/Scripts/activate.bat
-pip install django
 pip install -r requirements.txt
 ```
 
