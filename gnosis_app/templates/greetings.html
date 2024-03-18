@@ -1,0 +1,12 @@
+{% extends 'gnosis/base.html' %}
+{% block content %}
+
+  {% block title %}{{block.super}}{% endblock %}
+<div>
+  {% if name %}
+  <h1>Welcome, {{name}}</h1>
+  {% else %}
+  <h1>Welcome, Guest</h1>
+  {% endif %}
+</div>
+  {% endblock %}
