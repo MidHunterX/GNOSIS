@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gnosis_app',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +120,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR , 'static'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR ,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ============================= CONFIGURATIONS ============================= #
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# ============================ CUSTOM VARIABLES ============================ #
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/gnosis_app/home/'
+LOGOUT_URL = '/gnosis_app/home/'
+
+LOGIN_REDIRECT_URL = 'gnosis:ques_list'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# TODO: Google Auth from google console
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '562962128088-tp2pjoernl1tpcl668ivkigl44itb10e.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
