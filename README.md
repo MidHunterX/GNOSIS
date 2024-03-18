@@ -5,6 +5,14 @@
 Python ENV - ./ENV/
 Django App - ./GNOSIS/
 
+## Technologies Used
+
+| Name                | Usage                              |
+| ------------------- | ---------------------------------- |
+| virtualenv          | Python package virtual environment |
+| django              | Python webapp framework            |
+| django-crispy-forms | For all Input Forms                |
+
 ## Initializing Project
 
 ### Initialize Virtual Environment
@@ -30,6 +38,7 @@ pip install -r requirements.txt
 ```sh
 python manage.py createsuperuser
 ```
+
 ```
 Username: admin
 Email address: admin@gnosis.com
@@ -56,6 +65,7 @@ Run server:
 ```
 python manage.py runserver
 ```
+
 and open: 127.0.0.1:8000
 
 ## Closing Project
