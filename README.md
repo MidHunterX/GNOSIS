@@ -1,25 +1,39 @@
 # GNOSIS
 
-## Requirements
-
-- Python
-- python -m pip install virtualenv
-- python -m pip install django
-
 ## Project Structure
 
 Python ENV - ./ENV/
 Django App - ./GNOSIS/
 
-## Starting Fresh
+## Initializing Project
+
+### Initialize Virtual Environment
 
 Remove ENV directory if it already exists then recreate virtual environment:
 
 ```sh
+install python
+python -m pip install virtualenv
 python -m venv ENV
+```
+
+### Activate Virtual Environment
+
+```sh
 ./ENV/Scripts/activate.bat
 pip install django
 pip install -r requirements.txt
+```
+
+### Create Admin Account
+
+```sh
+python manage.py createsuperuser
+```
+```
+Username: admin
+Email address: admin@gnosis.com
+Password: admin
 ```
 
 ## Running Project
@@ -42,16 +56,26 @@ Run server:
 ```
 python manage.py runserver
 ```
+and open: 127.0.0.1:8000
 
-## Refresh
+## Closing Project
+
+```
+deactivate
+```
+
+## Snippets for Development
+
+### Migrate model after changes
 
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-## Closing Project
+### Re-applying Migrations (Col not found error)
 
-```
-deactivate
+```sh
+python manage.py migrate gnosis_app zero
+python manage.py migrate
 ```
