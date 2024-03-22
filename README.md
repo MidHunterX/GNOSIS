@@ -1,13 +1,20 @@
 # GNOSIS
 
-## Project Structure
-
-| Directory     | Description         |
-| ------------- | ------------------- |
-| ./GNOSIS/     | Main Django Project |
-| ./gnosis_app/ | GNOSIS Webapp       |
-| ./media/      | Multimedia storage  |
-| ./static/     | Static Dependencies |
+## Implemented Features
+- [x] Register an account
+- [x] Login with registered account
+- [x] Edit registered account details
+- [x] View other registered accounts
+- [x] Ask questions in plaintext
+- [x] Edit questions in plaintext
+- [x] Add questions to favorites list
+- [x] Delete questions
+- [x] Answer questions asked by other registered accounts in plaintext
+- [ ] Answer questions asked by other registered accounts in markdown
+- [ ] Answer questions asked by other registered accounts in audio
+- [ ] Answer questions asked by other registered accounts in video
+- [ ] Generate answers using OpenAI API
+- [ ] Generate research materials with duckduckgo API
 
 ## Technologies Used
 
