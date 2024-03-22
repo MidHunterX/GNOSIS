@@ -34,6 +34,7 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    DOB = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
         model = Profile
         fields = ['DOB','photo']
