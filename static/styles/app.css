@@ -1,12 +1,3 @@
-#id{
-    display: inline-flex;
-    vertical-align: middle;
-}
-
-.container{
-    padding-top: 77px;
-}
-
 .reaction{
     display: flex;
     flex-direction: row;
