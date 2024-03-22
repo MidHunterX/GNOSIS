@@ -1,4 +1,5 @@
 {% extends 'gnosis/base.html' %}
+{% load static %}
 {% block title %}Edit Profile | {{ block.super }}{% endblock %}
 {% block content %}
 <div class="row my-2">
@@ -6,7 +7,7 @@
     {% if user.profile.photo %}
     <img src="{{ user.profile.photo.url }}" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="150" height="150">
       {% else %}
-    <img src="/media/default.png" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="150" , height="150">
+    <img src="{% static 'default.png' %}" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="150" , height="150">
       {% endif %}
       {% if request.user.is_authenticated %}
       {% if request.user == user %}

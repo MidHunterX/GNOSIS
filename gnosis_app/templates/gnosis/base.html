@@ -40,7 +40,7 @@
                 {% if request.user.profile.photo %}
                 <img src="{{ request.user.profile.photo.url }}" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
                   {% else %}
-                <img src="/media/default.png" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
+                <img src="{% static 'default.png' %}" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
                   {% endif %}
                   {{ request.user }}
               </a>
