@@ -2,16 +2,22 @@
 
 ## Project Structure
 
-Python ENV - ./ENV/
-Django App - ./GNOSIS/
+| Directory     | Description         |
+| ------------- | ------------------- |
+| ./GNOSIS/     | Main Django Project |
+| ./gnosis_app/ | GNOSIS Webapp       |
+| ./media/      | Multimedia storage  |
+| ./static/     | Static Dependencies |
 
 ## Technologies Used
 
 | Name                | Usage                              |
 | ------------------- | ---------------------------------- |
 | virtualenv          | Python package virtual environment |
-| django              | Python webapp framework            |
+| Django              | Python webapp framework            |
 | django-crispy-forms | For all Input Forms                |
+| crispy-bootstrap5   | Bootstrap for Crispy Forms         |
+
 
 ## Initializing Project
 
@@ -57,6 +63,13 @@ cd into this project and Activate virtual environment:
 source ENV/bin/activate
 # Fish
 source ENV/bin/activate.fish
+```
+
+recreate database migrations
+
+```sh
+python manage.py migrate gnosis_app zero
+python manage.py migrate
 ```
 
 Run server:
