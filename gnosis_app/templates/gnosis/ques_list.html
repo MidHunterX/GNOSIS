@@ -9,11 +9,11 @@
   <div>
     <h2><p><a style="color: black;" href="{% url 'gnosis:ques_detail' q.id %}">{{q.title}}</a></p></h2>
     <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
+      &nbsp
       <span class="float-right">
-        <span class="badge badge-secondary">Created: {{q.created}}</span>
-        <span class="badge badge-secondary">Updated: {{q.updated}}</span>
-        <span style="text-transform: capitalize;" class="badge badge-secondary">{{q.status}}</span></p>
-    </span>
+        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
+        <span style="text-transform: capitalize;" class="badge rounded-pill text-bg-secondary">{{q.status}}</span>
+      </span>
     </p>
     <h4>Description:</h4><h6>{{q.body}}</h6>
   </div>
@@ -24,7 +24,6 @@
 <br>
 <br>
 <blockquote class="blockquote text-center">
-  <p class="mb-0">** That's it! **</p>
   <footer class="blockquote-footer"> You've scrolled to the end of the List!</footer>
 </blockquote>
   {% endblock %}
