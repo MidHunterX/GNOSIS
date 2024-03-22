@@ -15,10 +15,10 @@
   <div>
     <h2><p>Title: {{q.title}}</p></h2>
   <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
-      <span class="float-right">
-        <span class="badge badge-secondary">Created: {{q.created}}</span>
-        <span class="badge badge-secondary">Updated: {{q.updated}}</span>
-        <span style="text-transform: capitalize;" class="badge badge-secondary">{{q.status}}</span>
+      <span class="float-end">
+        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+        <span class="badge rounded-pill text-bg-secondary">Updated: {{q.updated}}</span>
+        <span style="text-transform: capitalize;" class="badge rounded-pill text-bg-secondary">{{q.status}}</span>
       </span></p>
     <h4>Description:</h4><h6>{{q.body}}</h6>
   </div>
