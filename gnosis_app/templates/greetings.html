@@ -9,7 +9,7 @@
   <h1 class="display-4">Welcome, Guest</h1>
   {% endif %}
   <hr>
-  <p>Welcome to GNOSIS! Click the 'Home' button above to discover questions posted by other users and join the conversation.</p>
-  <a href="#" class="btn btn-primary">View Questions</a>
+  <p>Welcome to GNOSIS! Click the 'Home' button above or 'View Questions' button below to discover questions posted by other users and join the conversation.</p>
+  <a href="{% url 'gnosis:ques_list' %}" class="btn btn-primary">View Questions</a>
 </div>
   {% endblock %}
