@@ -4,6 +4,7 @@
 - [x] Register an account
 - [x] Login with registered account
 - [x] Edit registered account details
+- [x] Logout of registered account
 - [x] View other registered accounts
 - [x] Ask questions in plaintext
 - [x] Edit questions in plaintext
