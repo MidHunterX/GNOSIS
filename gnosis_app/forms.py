@@ -42,13 +42,13 @@ class ProfileUpdateForm(forms.ModelForm):
 class QuestionAskForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['title' , 'body' ,'status','restrict_comments']
+        fields = ['title' , 'body', 'department', 'status', 'restrict_comments']
 
 
 class QuesUpdateForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['title','body','status','restrict_comments']
+        fields = ['title' , 'body', 'department', 'status', 'restrict_comments']
 
 
 class CommentForm(forms.ModelForm):

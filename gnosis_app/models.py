@@ -10,6 +10,29 @@ class Question(models.Model):
         ('published' , 'Published')
     )
 
+    DEPARTMENTS = (
+        ('gen', 'General'),
+        ('cse', 'Computer Science and Engineering'),
+        ('eee', 'Electrical and Electronics Engineering'),
+        ('me', 'Mechanical Engineering'),
+        ('ce', 'Civil Engineering'),
+        ('ece', 'Electronics and Communication Engineering'),
+        ('che', 'Chemical Engineering'),
+        ('bt', 'Biotechnology'),
+        ('it', 'Information Technology'),
+        ('ae', 'Aeronautical Engineering'),
+        ('ae', 'Automobile Engineering'),
+        ('ie', 'Industrial Engineering'),
+        ('mse', 'Materials Science and Engineering'),
+        ('ne', 'Nuclear Engineering'),
+        ('pe', 'Petroleum Engineering'),
+        ('mn', 'Mining Engineering'),
+        ('oe', 'Ocean Engineering'),
+        ('bce', 'Biochemical Engineering'),
+        ('ie', 'Instrumentation Engineering'),
+        ('se', 'Systems Engineering'),
+    )
+
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=120)
     author = models.ForeignKey(User , related_name='blog_posts' , on_delete=models.CASCADE)
@@ -18,6 +41,7 @@ class Question(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10 , choices=STATUS_CHOICES,default='draft')
+    department = models.CharField(max_length=100 , choices=DEPARTMENTS,default='gen')
     restrict_comments = models.BooleanField(default=False)
     favourite_ques = models.ManyToManyField(User,related_name='favourite_ques',blank=True)
 
