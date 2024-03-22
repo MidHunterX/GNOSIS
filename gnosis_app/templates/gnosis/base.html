@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
     <script src="{% static 'jquery/jquery.slim.min.js' %} "></script>
     <script src="{% static 'popper.js/popper.min.js' %} "></script>
@@ -39,7 +40,7 @@
           {% if request.user.is_authenticated %}
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'gnosis:profilepage' username=user.username %}">
+              <a class="nav-link" href="{% url 'gnosis:profilepage' username=request.user %}">
                 {% if request.user.profile.photo %}
                 <img src="{{ request.user.profile.photo.url }}" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
                   {% else %}
