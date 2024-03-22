@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Edit Profile | {{ block.super }}{% endblock %}
 {% block content %}
-<div class="row my-2">
+<div class="row">
   <div class="col-lg-4 order-lg-1 text-center">
     {% if user.profile.photo %}
     <img src="{{ user.profile.photo.url }}" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="150" height="150">
@@ -11,7 +11,7 @@
       {% endif %}
       {% if request.user.is_authenticated %}
       {% if request.user == user %}
-    <a class="btn btn-secondary mb-2" href="{% url 'gnosis:edit_profile' %}">Edit Profile</a>
+    <a class="btn btn-secondary mb-2 my-2" href="{% url 'gnosis:edit_profile' %}">Edit Profile</a>
     {% endif %}
     {% endif %}
   </div>
@@ -54,7 +54,6 @@
 <br>
 <br>
 <blockquote class="blockquote text-center">
-  <p class="mb-0">** That's it! **</p>
   <footer class="blockquote-footer"> You've scrolled to the end of the List!</footer>
 </blockquote>
 {% endblock %}
