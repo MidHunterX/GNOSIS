@@ -4,9 +4,12 @@
   {% block title %}{{block.super}}{% endblock %}
 <div>
   {% if request.user.is_authenticated %}
-  <h1>Welcome, {{user.first_name}} {{user.last_name}}</h1>
+  <h1 class="display-4">Welcome, {{user.first_name}} {{user.last_name}}</h1>
   {% else %}
-  <h1>Welcome, Guest</h1>
+  <h1 class="display-4">Welcome, Guest</h1>
   {% endif %}
+  <hr>
+  <p>Welcome to GNOSIS! Click the 'Home' button above to discover questions posted by other users and join the conversation.</p>
+  <a href="#" class="btn btn-primary">View Questions</a>
 </div>
   {% endblock %}
