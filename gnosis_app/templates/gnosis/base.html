@@ -17,22 +17,25 @@
     </title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">GNOSIS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar1">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'gnosis:ques_list' %}"><i class="fas fa-home"></i> Home</a>
-            </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- LEFT SIDE: QUESTION RELATED LINKS -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="{% url 'gnosis:ques_list' %}"><i class="fas fa-home"></i> Home</a></li>
             {% if request.user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{% url 'gnosis:ask_question' %}"><i class="fas fa-edit"></i> New Question</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'gnosis:show_fav_ques' %}"><i class="fas fa-star"></i> Favourites</a></li>
             {% endif %}
           </ul>
+
+          <!-- RIGHT SIDE: PROFILE RELATED LINKS -->
           {% if request.user.is_authenticated %}
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
@@ -56,7 +59,8 @@
         </div>
       </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid">
+
+    <div class="container-fluid p-5">
       <div class="container container-fluid">
         {% block content %}
         {% endblock %}
