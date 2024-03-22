@@ -2,7 +2,7 @@
 {% block content %}
 
   {% block title %}{{block.super}}{% endblock %}
-<div>
+<div class="p-5">
   {% if request.user.is_authenticated %}
   <h1 class="display-4">Welcome, {{user.first_name}} {{user.last_name}}</h1>
   {% else %}
