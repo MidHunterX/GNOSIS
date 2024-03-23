@@ -39,7 +39,7 @@
 
   <!-- QUESTION LIST -->
   {% for q in questions %}
-  <div class="p-4 border rounded-4 bg-body-tertiary" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
+  <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
     <h2><p>{{q.title}}</p></h2>
     <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
       <span class="float-end">
