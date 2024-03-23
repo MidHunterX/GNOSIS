@@ -1,8 +1,8 @@
 # GNOSIS
 
-## Implemented Features
+## Project Requirements
 
-### Profile Related
+### Profile Related Requirements
 
 - [x] Register an account
 - [x] Show error messages on unsuccessful authentication
@@ -11,17 +11,26 @@
 - [x] Logout of registered account
 - [x] View other registered accounts
 
-### Question Related
+### General Requirements
 
-- [x] Ask questions in plaintext
-- [x] Edit questions in plaintext
-- [x] Add questions to favorites list
+- [x] Upload Pictures for Profile Picture
+- [x] Switch between Light mode and Dark mode
+
+### Question Related Requirements
+
+- [x] Create questions in plaintext
+- [x] Read questions
+- [x] Update questions in plaintext
 - [x] Delete questions
+- [x] Add questions to favorites list
+- [x] Optional ability to restrict comments on study materials / posts
 - [x] Answer questions asked by other registered accounts in plaintext
 - [ ] Answer questions asked by other registered accounts in markdown
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
-- [ ] Search for questions and answers
+- [ ] Search for all questions and answers
+- [ ] Search for questions and answers based on Department
+- [ ] Explore questions based on Department
 - [ ] Generate answers using OpenAI API
 - [ ] Generate research materials with duckduckgo API
 
