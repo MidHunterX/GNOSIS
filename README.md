@@ -1,11 +1,18 @@
 # GNOSIS
 
 ## Implemented Features
+
+### Profile Related
+
 - [x] Register an account
-- [x] Login with registered account
+- [x] Show error messages on unsuccessful authentication
+- [x] Login with registered account on successful authentication
 - [x] Edit registered account details
 - [x] Logout of registered account
 - [x] View other registered accounts
+
+### Question Related
+
 - [x] Ask questions in plaintext
 - [x] Edit questions in plaintext
 - [x] Add questions to favorites list
@@ -14,6 +21,7 @@
 - [ ] Answer questions asked by other registered accounts in markdown
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
+- [ ] Search for questions and answers
 - [ ] Generate answers using OpenAI API
 - [ ] Generate research materials with duckduckgo API
 
@@ -25,7 +33,6 @@
 | Django              | Python webapp framework            |
 | django-crispy-forms | For all Input Forms                |
 | crispy-bootstrap5   | Bootstrap for Crispy Forms         |
-
 
 ## Initializing Project
 
