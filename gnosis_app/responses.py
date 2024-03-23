@@ -29,6 +29,12 @@ def test(request):
 def greetings(request):
     return render(request, "greetings.html", {"name": "User"})
 
+def goodbye(request):
+    username = request.GET.get('username')
+    if not username:
+        username = 'User'
+    return render(request, 'goodbye.html', {'username': username})
+
 
 # =========================== End Initial Testing =========================== #
 
@@ -192,8 +198,10 @@ def user_login(request):
 
 @login_required()
 def user_logout(request):
+    username = request.user.first_name + " " + request.user.last_name
     logout(request)
-    return HttpResponseRedirect(reverse('gnosis:ques_list'))
+    return HttpResponseRedirect(reverse('gnosis:goodbye') + f'?username={username}')
+    # return HttpResponseRedirect(reverse('gnosis:ques_list'))
 
 
 
