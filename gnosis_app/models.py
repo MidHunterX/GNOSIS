@@ -5,9 +5,11 @@ from django.contrib.auth.models import User
 
 class Question(models.Model):
 
-    STATUS_CHOICES = (
-        ('draft' , 'Draft'),
-        ('published' , 'Published')
+    # ISO 639-1 Standard
+    LANGUAGES = (
+        ('en', 'English'),
+        ('hi', 'Hindi'),
+        ('ml', 'Malayalam'),
     )
 
     DEPARTMENTS = (
@@ -40,7 +42,7 @@ class Question(models.Model):
     likes = models.ManyToManyField(User , related_name='post_likes',blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10 , choices=STATUS_CHOICES,default='draft')
+    language = models.CharField(max_length=10 , choices=LANGUAGES,default='en')
     department = models.CharField(max_length=100 , choices=DEPARTMENTS,default='gen')
     restrict_comments = models.BooleanField(default=False)
     favourite_ques = models.ManyToManyField(User,related_name='favourite_ques',blank=True)
