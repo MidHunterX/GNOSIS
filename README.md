@@ -1,5 +1,7 @@
 # GNOSIS
 
+> For sharing knowledge
+
 ## Project Requirements
 
 ### Profile Related Requirements
