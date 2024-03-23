@@ -178,7 +178,7 @@ def user_login(request):
                 else:
                     return HttpResponse('User is not Active')
             else:
-                return HttpResponse('User Not Available')
+                messages.error(request, 'Invalid username or password. Please try again.')
     else:
         form = LoginForm()
 
