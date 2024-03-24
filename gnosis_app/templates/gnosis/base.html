@@ -37,14 +37,15 @@
           </ul>
 
           <ul class="navbar-nav mx-auto">
-            <!-- TOGGLE DARK MODE - LIGHT MODE -->
-            <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
             <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
             {% if request.user.is_authenticated %}
             <button id="showButton" class="btn btn-outline-info">Uploader Mode</button>
             <button id="hideButton" class="btn btn-outline-info" style="display: none;">Viewer Mode</button>
             {% endif %}
           </ul>
+
+          <!-- TOGGLE DARK MODE - LIGHT MODE -->
+          <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
 
           <!-- RIGHT SIDE: PROFILE RELATED LINKS -->
           {% if request.user.is_authenticated %}
