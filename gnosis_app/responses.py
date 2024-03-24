@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404 , Http404
+from django.shortcuts import render, redirect, get_object_or_404, Http404
 from .models import Question , Profile , Comment , Replies
 from .forms import (LoginForm ,
                     QuestionAskForm ,
@@ -14,6 +14,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+import requests
 
 
 # =========================== For Initial Testing =========================== #
@@ -40,7 +41,28 @@ def goodbye(request):
 
 
 def ques_list(request):
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text')
+        if input_text:
+            # api_key = os.getenv('GOOGLE_API_KEY')
+            api_key = 'AIzaSyBo_13250kxL6U9C3O5pjVa9CI0FDjLDGM'
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
+            headers = {
+                'Content-Type': 'application/json'
+            }
+            data = {
+                "contents": [ { "parts": [ { "text": input_text } ] } ]
+            }
+            # Sending POST request
+            response = requests.post(url, headers=headers, json=data)
+            if response.status_code == 200:
+                response_json = response.json()
+                output_text = response_json['candidates'][0]['content']['parts'][0]['text']
+            else:
+                output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
+            return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
 
+    # Community Generated Question List
     ques = Question.objects.all().order_by('-id')
     context = {
         'ques' : ques
