@@ -38,7 +38,7 @@ class Question(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=120)
     author = models.ForeignKey(User , related_name='blog_posts' , on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(blank=True)
     likes = models.ManyToManyField(User , related_name='post_likes',blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

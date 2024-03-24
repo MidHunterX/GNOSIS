@@ -18,7 +18,9 @@
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
       </span>
     </p>
-    <h4>Description:</h4><h6>{{q.body}}</h6>
+    {% if q.body %}
+      <h4>Description:</h4><h6>{{q.body}}</h6>
+    {% endif %}
   </div>
   <br>
   {% endfor %}
