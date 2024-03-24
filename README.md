@@ -26,6 +26,7 @@
 - [x] Delete questions
 - [x] Add questions to favorites list
 - [x] Optional ability to restrict comments on study materials / posts
+- [x] Toggle between Uploader and Viewer Mode
 - [x] Answer questions asked by other registered accounts in plaintext
 - [ ] Answer questions asked by other registered accounts in markdown
 - [ ] Answer questions asked by other registered accounts in audio
