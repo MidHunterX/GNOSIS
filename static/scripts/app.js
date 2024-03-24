@@ -41,22 +41,38 @@ function toggleAnswerBlock() {
   const hideButton = document.getElementById('hideButton');
 
   // Check if the block was previously hidden
-  const isHidden = localStorage.getItem('isAnswerBlockHidden') || 'true';
+  let isHidden = localStorage.getItem('isAnswerBlockHidden');
+  if (isHidden === null) {
+    isHidden = 'true';
+  }
+
   if (isHidden === 'true') {
-    block.style.display = 'none';
+    if (block) {
+      block.style.display = 'none';
+    }
     showButton.style.display = 'inline-block';
     hideButton.style.display = 'none';
+  } else {
+    if (block) {
+      block.style.display = 'block';
+    }
+    showButton.style.display = 'none';
+    hideButton.style.display = 'inline-block';
   }
 
   showButton.addEventListener('click', function() {
-    block.style.display = 'block';
+    if (block) {
+      block.style.display = 'block';
+    }
     showButton.style.display = 'none';
     hideButton.style.display = 'inline-block';
     localStorage.setItem('isAnswerBlockHidden', 'false');
   });
 
   hideButton.addEventListener('click', function() {
-    block.style.display = 'none';
+    if (block) {
+      block.style.display = 'none';
+    }
     showButton.style.display = 'inline-block';
     hideButton.style.display = 'none';
     localStorage.setItem('isAnswerBlockHidden', 'true');
