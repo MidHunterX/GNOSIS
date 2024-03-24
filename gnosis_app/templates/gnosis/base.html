@@ -37,11 +37,13 @@
           </ul>
 
           <ul class="navbar-nav mx-auto">
-            <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
-            <button id="showButton" class="btn btn-outline-info">Viewer Mode</button>
-            <button id="hideButton" class="btn btn-outline-info" style="display: none;">Uploader Mode</button>
             <!-- TOGGLE DARK MODE - LIGHT MODE -->
             <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
+            <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
+            {% if request.user.is_authenticated %}
+            <button id="showButton" class="btn btn-outline-info">Uploader Mode</button>
+            <button id="hideButton" class="btn btn-outline-info" style="display: none;">Viewer Mode</button>
+            {% endif %}
           </ul>
 
           <!-- RIGHT SIDE: PROFILE RELATED LINKS -->
