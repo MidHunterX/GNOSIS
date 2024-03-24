@@ -12,10 +12,15 @@
     <h1 class="display-3 mb-0">Welcome</h1>
     <h1 class="display-2 fw-bold">Guest</h1>
     {% endif %}
-    <h3 class="fw-normal text-muted mt-4">Discover questions posted by other users and join the conversation with GNOSIS</h3>
+    <h3 class="fw-normal text-muted mt-4">Discover questions posted by other users and join the conversation with GNOSIS.</h3>
     <div class="d-flex gap-3 justify-content-center mt-4">
+      {% if request.user.is_authenticated %}
       <a href="{% url 'gnosis:ques_list' %}" class="btn btn-primary">View Questions</a>
       <a href="{% url 'gnosis:ask_question' %}" class="btn btn-outline-primary">Ask a Question</a>
+      {% else %}
+      <a href="{% url 'gnosis:user_login' %}" class="btn btn-primary">Login</a>
+      <a href="{% url 'gnosis:register' %}" class="btn btn-outline-primary">Register</a>
+      {% endif %}
     </div>
   </div>
 </div>
