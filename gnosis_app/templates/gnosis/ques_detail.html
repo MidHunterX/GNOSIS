@@ -155,13 +155,17 @@
 {% endfor %} 
 
 <!-- MAIN POST ANSWER FORM -->
-<h4>Add your answer below:</h4>
-<form method="POST">
-  {% csrf_token %}
-  {{ comment_form|crispy }}
-  <button class="btn btn-outline-primary" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-comment"></i> Answer</button>
-</form>
-<br><br>
+<div id="uploaderMode">
+  <h4>Add your answer below:</h4>
+  <form method="POST">
+    {% csrf_token %}
+    {{ comment_form|crispy }}
+    <button class="btn btn-outline-primary" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-comment"></i> Answer</button>
+  </form>
+  <br><br>
+</div>
+
+<!-- RESTRICTED: NO ANSWER FORM AND NO MAIN POST ANSWER -->
   {% else %}
 <div class="alert alert-danger" role="alert">
   <h6><i class="fas fa-comment-slash"></i> Comments on this post are restricted!</h6>

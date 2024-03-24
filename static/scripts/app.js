@@ -29,3 +29,38 @@ themeToggle.addEventListener('click', function() {
         themeToggle.classList.add('fa-sun');
     }
 });
+
+
+/*========================*\
+ * VIEWER / UPLOADER MODE *
+\*========================*/
+
+function toggleAnswerBlock() {
+  const block = document.getElementById('uploaderMode');
+  const showButton = document.getElementById('showButton');
+  const hideButton = document.getElementById('hideButton');
+
+  // Check if the block was previously hidden
+  const isHidden = localStorage.getItem('isAnswerBlockHidden') || 'true';
+  if (isHidden === 'true') {
+    block.style.display = 'none';
+    showButton.style.display = 'inline-block';
+    hideButton.style.display = 'none';
+  }
+
+  showButton.addEventListener('click', function() {
+    block.style.display = 'block';
+    showButton.style.display = 'none';
+    hideButton.style.display = 'inline-block';
+    localStorage.setItem('isAnswerBlockHidden', 'false');
+  });
+
+  hideButton.addEventListener('click', function() {
+    block.style.display = 'none';
+    showButton.style.display = 'inline-block';
+    hideButton.style.display = 'none';
+    localStorage.setItem('isAnswerBlockHidden', 'true');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', toggleAnswerBlock);

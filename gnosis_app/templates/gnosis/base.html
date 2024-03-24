@@ -36,12 +36,17 @@
             {% endif %}
           </ul>
 
-          <!-- TOGGLE DARK MODE - LIGHT MODE -->
-          <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
+          <ul class="navbar-nav mx-auto">
+            <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
+            <button id="showButton" class="btn btn-outline-info">Viewer Mode</button>
+            <button id="hideButton" class="btn btn-outline-info" style="display: none;">Uploader Mode</button>
+            <!-- TOGGLE DARK MODE - LIGHT MODE -->
+            <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
+          </ul>
 
           <!-- RIGHT SIDE: PROFILE RELATED LINKS -->
           {% if request.user.is_authenticated %}
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="{% url 'gnosis:profilepage' username=request.user %}">
                 {% if request.user.profile.photo %}
