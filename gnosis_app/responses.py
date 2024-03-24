@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 import requests
+import markdown
 
 
 # =========================== For Initial Testing =========================== #
@@ -58,6 +59,8 @@ def ques_list(request):
             if response.status_code == 200:
                 response_json = response.json()
                 output_text = response_json['candidates'][0]['content']['parts'][0]['text']
+                # Markdown to HTML Convertion
+                output_text = markdown.markdown(output_text)
             else:
                 output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
             return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
