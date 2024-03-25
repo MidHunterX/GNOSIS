@@ -127,24 +127,23 @@ Open 127.0.0.1:8000 in your browser
 
 ### Closing Virtual Environment
 
-Press Ctrl+C to close the server and 
-either close the server console window or use the following command
+Press Ctrl+C to close the server and either close the server console window or use the following command
 
 ```
 deactivate
 ```
 
-# UI/UX Design Inspirations
+## UI/UX Design Inspirations
 
 These are design choices made by big tech companies which are proven to be one of the best designs when it comes to rich user experience.
 
-| Style Inspiration               | Project Implementation                         |
-| ------------------------------- | ---------------------------------------------- |
-| NFS Rivals style selection mode | Full screen modal. Esc to quit bottom tagline. |
-| Whatsapp Group style Message    | Answer suggestions                             |
-| Quora style answers             | ques_details page                              |
-| Gmail Textbox style MD input    | ques_details page multimedia input             |
-| Whatsapp Attach UI              | ques_details input more section                |
+| Style Inspiration            | Project Implementation                         |
+| ---------------------------- | ---------------------------------------------- |
+| Rivals style selection mode  | Full screen modal. Esc to quit bottom tagline. |
+| Whatsapp Group style Message | Answer suggestions                             |
+| Quora style answers          | ques_details page                              |
+| Gmail Textbox style MD input | ques_details page multimedia input             |
+| Whatsapp Attach UI           | ques_details input more section                |
 
 ## Snippets for Development
 
