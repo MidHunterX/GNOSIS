@@ -96,8 +96,8 @@ pip install -r requirements.txt
 python manage.py createsuperuser
 ```
 
-Username: admin
-Email address: admin@gnosis.com
+Username: admin <br>
+Email address: admin@gnosis.com <br>
 Password: admin
 
 ## Running Project
