@@ -36,7 +36,7 @@
 - [x] Add questions to favorites list
 - [x] Optional ability to restrict comments on study materials / posts
 - [x] Toggle between Uploader and Viewer Mode
-- [x] Auto Generate answers with LLMs
+- [x] Auto Generate answers with Gemini AI
 - [x] Answer questions asked by other registered accounts in plaintext
 - [ ] Answer questions asked by other registered accounts in markdown
 - [ ] Answer questions asked by other registered accounts in audio
@@ -44,7 +44,6 @@
 - [ ] Search for all questions and answers
 - [ ] Search for questions and answers based on Department
 - [ ] Explore questions based on Department
-- [ ] Generate answers using OpenAI API
 - [ ] Generate research materials with duckduckgo API
 
 ## Technologies Used
@@ -61,12 +60,17 @@
 
 ## Initializing Project
 
-### Initialize Virtual Environment
-
-Remove ENV directory if it already exists then recreate virtual environment:
+### Clone the project
 
 ```sh
-install python
+git clone https://github.com/MidHunterX/GNOSIS
+```
+
+### Initialize Virtual Environment
+
+Install Python and execute following commands:
+
+```sh
 python -m pip install virtualenv
 python -m venv ENV
 ```
@@ -75,25 +79,25 @@ python -m venv ENV
 
 Powershell
 
-```
+```sh
 .\ENV\Scripts\Activate.ps1
 ```
 
 CMD
 
-```
+```sh
 .\ENV\Scripts\activate.bat
 ```
 
 Bash and Zsh
 
-```
+```sh
 source ENV/bin/activate
 ```
 
 Fish
 
-```
+```sh
 source ENV/bin/activate.fish
 ```
 
