@@ -40,6 +40,8 @@ def goodbye(request):
 
 # =========================== End Initial Testing =========================== #
 
+def info(request):
+    return render(request,"gnosis/info.html")
 
 def ques_list(request):
     if request.method == 'POST':
@@ -391,3 +393,4 @@ def delete_reply(request, id):
         return Http404()
     reply.delete()
     return HttpResponseRedirect(reverse('gnosis:ques_detail', args=(id,)))
+
