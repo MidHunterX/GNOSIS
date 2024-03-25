@@ -55,7 +55,13 @@ def ques_list(request):
                 "contents": [ { "parts": [ { "text": input_text } ] } ]
             }
             # Sending POST request
-            response = requests.post(url, headers=headers, json=data)
+            try:
+                response = requests.post(url, headers=headers, json=data)
+            except requests.exceptions.RequestException:
+                output_text = "You seem to be offline. To generate answers, you need internet access"
+                return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
+
+            # Recieve POST response
             if response.status_code == 200:
                 response_json = response.json()
                 output_text = response_json['candidates'][0]['content']['parts'][0]['text']
@@ -63,6 +69,7 @@ def ques_list(request):
                 output_text = markdown.markdown(output_text)
             else:
                 output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
+
             return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
 
     # Community Generated Question List
