@@ -1,18 +1,23 @@
 {% extends 'gnosis/base.html' %}
+{% load static %}
 {% block content %}
 
 {% block title %}{{block.super}}{% endblock %}
 
-<form method="post">
-  {% csrf_token %}
-  <label for="input_text" class="visually-hidden">Question:</label>
-  <input type="text" name="input_text" id="input_text" placeholder="Ask a question!" class="form-label">
-  <input type="submit" value="Ask" class="btn btn-primary">
-</form>
+<body>
+
+<div class="form-container mt-5 p-5">
+  <form class="d-flex justify-content-center" id="form" method="post">
+    {% csrf_token %}
+    <label for="input_text" class="visually-hidden">Question:</label>
+    <input type="text" name="input_text" id="input_text" placeholder="Ask a question!" class="btn btn-outline-secondary">
+    <input type="submit" value="Ask" class="btn btn-primary ms-2">
+  </form>
+</div>
 
 <div>
-  <h2 class="display-6">Asked Questions :</h2>
-  <hr class="my-4">
+  <h2 class="display-6 d-flex justify-content-center"><strong>Asked Questions :</strong></h2>
+  <hr class="my-5 ">
 
   <!-- QUESTION LIST -->
   {% for q in ques %}
@@ -36,6 +41,7 @@
 <br>
 <br>
 <blockquote class="blockquote text-center">
-  <footer class="blockquote-footer"> You've scrolled to the end of the List!</footer>
+  <footer class="blockquote-footer"><strong>You've scrolled to the end of the List!</strong></footer>
 </blockquote>
+</body>
   {% endblock %}

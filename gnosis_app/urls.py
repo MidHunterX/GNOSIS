@@ -9,6 +9,7 @@ urlpatterns = [
     path("test/", responses.test),
     path("", responses.greetings, name="greetings"),
     path('goodbye/',responses.goodbye,name = 'goodbye'),
+    path('info/',responses.info,name = 'info'),
 
     path('home/',responses.ques_list,name = 'ques_list'),
     path('ques/<int:id>/',responses.ques_detail,name='ques_detail'),
