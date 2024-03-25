@@ -73,14 +73,27 @@ python -m venv ENV
 
 ### Activate Virtual Environment
 
-```sh
-# Powershell
+Powershell
+
+```
 .\ENV\Scripts\Activate.ps1
-# CMD
+```
+
+CMD
+
+```
 .\ENV\Scripts\activate.bat
-# Bash and Zsh
+```
+
+Bash and Zsh
+
+```
 source ENV/bin/activate
-# Fish
+```
+
+Fish
+
+```
 source ENV/bin/activate.fish
 ```
 
@@ -106,20 +119,33 @@ cd into this project and do the following steps
 
 ### Activate Virtual Environment
 
+Powershell
+
 ```sh
-# Powershell
 .\ENV\Scripts\Activate.ps1
-# CMD
+```
+
+CMD
+
+```sh
 .\ENV\Scripts\activate.bat
-# Bash and Zsh
+```
+
+Bash and Zsh
+
+```sh
 source ENV/bin/activate
-# Fish
+```
+
+Fish
+
+```sh
 source ENV/bin/activate.fish
 ```
 
 ### Run Server
 
-```
+```sh
 python manage.py runserver
 ```
 
