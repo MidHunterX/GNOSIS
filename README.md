@@ -4,12 +4,12 @@
 
 ## Development Progress
 
-- [x] Concept of operation
-- [x] Requirements elicitation
-- [x] Database Modelling
-- [ ] Logic Design and Implementation
-- [ ] UI/UX Design and Implementation
-- [ ] Blackbox Testing
+- ![](https://geps.dev/progress/100) Concept of operation
+- ![](https://geps.dev/progress/100) Requirements elicitation
+- ![](https://geps.dev/progress/90) Database Modelling and Implementation
+- ![](https://geps.dev/progress/50) Program Logic Design and Implementation
+- ![](https://geps.dev/progress/10) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/0) Blackbox Testing
 
 ## Project Requirements
 
