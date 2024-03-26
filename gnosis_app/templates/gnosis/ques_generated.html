@@ -6,18 +6,18 @@
 
 <div>
   <div>
-    <h2><p>Question: {{ input_text }}</p></h2>
+    <h2 class="text-capitalize"><p>Question: {{ input_text }}</p></h2>
   </div>
   <hr class="my-4">
 </div>
 
 <!-- MAIN COMMENT -->
 <div class="d-flex p-4 border border-secondary rounded-4 shadow">
-  <div alt="Comment Profile Picture">
+  <div class="me-4" alt="Comment Profile Picture">
     <img class="rounded-circle" style="background-color: inherit;" src="{% static 'comments.png' %}" height="64" width="64" alt="Generic placeholder image">
   </div>
-  <div class="ms-4" alt="Comment Text">
-    <h5 class="mt-0">
+  <div class="flex-fill" alt="Comment Text">
+    <h5>
       <p><strong>@</strong>gnosis</a>
         <span class="float-end">now</span>
       </p>
