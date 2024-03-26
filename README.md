@@ -7,7 +7,7 @@
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/90) Database Modelling and Implementation
-- ![](https://geps.dev/progress/60) Program Logic Design and Implementation
+- ![](https://geps.dev/progress/70) Program Logic Design and Implementation
 - ![](https://geps.dev/progress/35) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
@@ -38,7 +38,7 @@
     - [x] Sanitize problematic HTML tags for security
     - [x] Model in Database for storing Sanitized Data
     - [x] Renderer for stored markdown code
-- [ ] Answer questions asked by other registered accounts in image
+- [x] Answer questions asked by other registered accounts with inline image (url) attachment
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
