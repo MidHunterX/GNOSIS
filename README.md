@@ -35,9 +35,9 @@
 - [x] Auto Generate answers with Gemini AI
 - [x] Answer questions asked by other registered accounts in plaintext
 - [x] Answer questions asked by other registered accounts in markdown
-    - [x] Sanitize problematic HTML tags for security
-    - [x] Model in Database for storing Sanitized Data
-    - [x] Renderer for stored markdown code
+  - [x] Sanitize problematic HTML tags for security
+  - [x] Model in Database for storing Sanitized Data
+  - [x] Renderer for stored markdown code
 - [x] Answer questions asked by other registered accounts with inline image (url) attachment
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
@@ -56,17 +56,18 @@
 
 ## Technologies Used
 
-| Name                 | Usage                                   |
-| -------------------- | --------------------------------------- |
-| virtualenv           | Python package virtual environment      |
-| Django               | Python webapp framework                 |
-| django-crispy-forms  | For all Input Forms                     |
-| crispy-bootstrap5    | Bootstrap for Crispy Forms              |
-| django-markdownfield | Raw Markdown storage model and renderer |
-| bleach               | HTML Sanitizier for storing MD to DB    |
-| Bootstrap v5.3       | CSS Framework                           |
-| Fontawesome          | CSS Icons Framework                     |
-| easymde              | Markdown Editor Frontend for User Input |
+| Name                 | Usage                                       |
+| -------------------- | ------------------------------------------- |
+| virtualenv           | Python package virtual environment          |
+| Django               | Python webapp framework                     |
+| django-crispy-forms  | For all Input Forms                         |
+| crispy-bootstrap5    | Bootstrap for Crispy Forms                  |
+| django-markdownfield | Raw Markdown storage model and renderer     |
+| bleach               | HTML Sanitizier for storing MD to DB        |
+| Bootstrap v5.3       | CSS Framework                               |
+| Fontawesome          | CSS Icons Framework                         |
+| easymde              | Markdown Editor Frontend for User Input     |
+| fuzzywuzzy           | Fuzzy String Sequence and Pattern detection |
 
 ## Initializing Project
 
