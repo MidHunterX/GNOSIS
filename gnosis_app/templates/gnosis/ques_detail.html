@@ -169,6 +169,18 @@
       const easyMDE = new EasyMDE({
         forceSync: true,
         autoDownloadFontAwesome: false, // Already in the project
+        // previewImagesInEditor: true,
+        // imagesPreviewHandler: true, // returns img src tag for frontent
+        // uploadImage: true, // drag and drop support
+        // imageMaxSize: '2048*2048*2',
+        sideBySideFullscreen: true, // Full screen editing
+        toolbar: [
+          "bold", "italic", "strikethrough", "heading", "|",
+          "code", "quote", "unordered-list", "ordered-list", "horizontal-rule", "|",
+          "clean-block", "link", "|",
+          "preview", "side-by-side", "|",
+          "undo", "redo"
+        ],
       });
     </script>
 
