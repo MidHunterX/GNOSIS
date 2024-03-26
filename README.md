@@ -21,11 +21,7 @@
 - [x] Edit registered account details
 - [x] Logout of registered account
 - [x] View other registered accounts
-
-### General Requirements
-
 - [x] Upload Pictures for Profile Picture
-- [x] Switch between Light mode and Dark mode
 
 ### Question Related Requirements
 
@@ -41,10 +37,18 @@
 - [ ] Answer questions asked by other registered accounts in markdown
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
+- [ ] Generate research materials with duckduckgo API
+
+### Navigation Related Requirements
+
 - [ ] Search for all questions and answers
 - [ ] Search for questions and answers based on Department
 - [ ] Explore questions based on Department
-- [ ] Generate research materials with duckduckgo API
+
+### Extra Features
+
+- [x] Switch between Light mode and Dark mode
+- [ ] Answer Code Syntax Highlighting with Pygments
 
 ## Technologies Used
 
