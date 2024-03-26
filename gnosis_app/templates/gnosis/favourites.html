@@ -9,7 +9,7 @@
       <div>
         <h2><p><a style="color: black;" href="{% url 'gnosis:ques_detail' q.id %}">{{q.title}}</a></p></h2>
         <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
-          <span class="float-right">
+          <span class="float-end">
             <span class="badge badge-secondary">Created: {{q.created}}</span>
             <span class="badge badge-secondary">Updated: {{q.updated}}</span>
             <span style="text-transform: uppercase;" class="badge badge-secondary">{{q.language}}</span></p>

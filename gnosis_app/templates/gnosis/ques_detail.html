@@ -100,18 +100,16 @@
   <div class="ms-4" alt="Comment Text">
     <h5 class="mt-0">
       <p><strong>@</strong><a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
-        <span class="float-right">{{comment.timestamp}}</span>
+        <span class="float-end">{{comment.timestamp}}</span>
       </p>
     </h5>
-    <p>
-      {{ comment.content }}
+    <p> {{ comment.content }} </p>
       {% if request.user == comment.user %}
     <form action="{% url 'gnosis:delete_comment' q.id %}" method="POST">
       {% csrf_token %}
       <button class="btn btn-outline-danger btn-sm" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-trash"></i> Delete</button>
     </form>
     {% endif %}
-    </p>
   </div>
 </div>
 
@@ -140,7 +138,7 @@
     <div class="ms-4" alt="Reply Text">
       <h5 class="mt-0">
         <p><strong>@</strong><a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a>
-          <span class="float-right">{{comment.timestamp}}</span>
+          <span class="float-end">{{comment.timestamp}}</span>
         </p>
       </h5>
       <p>{{ reply.content }}</p>
