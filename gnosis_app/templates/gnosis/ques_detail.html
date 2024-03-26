@@ -90,18 +90,17 @@
 
 <!-- MAIN COMMENT -->
 <div class="d-flex p-4 border border-secondary rounded-4 shadow">
-  <div alt="Comment Profile Picture">
+  <div class="me-4" alt="Comment Profile Picture">
     {% if comment.user.profile.photo %}
     <img class="rounded-circle" style="background-color: inherit;" src="{{ comment.user.profile.photo.url }}" height="64" width="64">
       {% else %}
     <img class="rounded-circle" style="background-color: inherit;" src="{% static 'comments.png' %}" height="64" width="64" alt="Generic placeholder image">
       {% endif %}
   </div>
-  <div class="ms-4" alt="Comment Text">
-    <h5 class="mt-0">
-      <p><strong>@</strong><a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
-        <span class="float-end">{{comment.timestamp}}</span>
-      </p>
+  <div class="flex-fill" alt="Comment Text">
+    <h5>
+      <strong>@</strong><a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
+      <span class="float-end">{{comment.timestamp}}</span>
     </h5>
     <p> {{ comment.content_rendered | safe }} </p>
       {% if request.user == comment.user %}
@@ -127,20 +126,19 @@
   <!-- MAIN COMMENT REPLIES -->
   <!-- <h5>{{ replies|count_reply:comment}} Replies</h5> -->
   {% for reply in replies|in_category:comment %}
-  <div class="d-flex p-4 mb-3 border border-1 border-tertiary rounded-4">
-    <div alt="Reply Profile Picture">
+  <div class="d-flex p-3 mb-3 border border-1 border-tertiary rounded-4">
+    <div class="me-3" alt="Reply Profile Picture">
       {% if reply.user.profile.photo %}
-      <img class="rounded-circle" style="background-color: inherit;" src="{{ reply.user.profile.photo.url }}" height="64" width="64">
+      <img class="rounded-circle" style="background-color: inherit;" src="{{ reply.user.profile.photo.url }}" height="49" width="49">
         {% else %}
-      <img class="rounded-circle" style="background-color: inherit;" src="{% static 'comments.png' %}" height="64" width="64" alt="Generic placeholder image">
+      <img class="rounded-circle" style="background-color: inherit;" src="{% static 'comments.png' %}" height="49" width="49" alt="Generic placeholder image">
         {% endif %}
     </div>
-    <div class="ms-4" alt="Reply Text">
-      <h5 class="mt-0">
-        <p><strong>@</strong><a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a>
-          <span class="float-end">{{comment.timestamp}}</span>
-        </p>
-      </h5>
+    <div class="flex-fill" alt="Reply Text">
+      <h6>
+        <strong>@</strong><a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a>
+        <span class="float-end">{{comment.timestamp}}</span>
+      </h6>
       <p>{{ reply.content }}</p>
         {% if request.user == reply.user %}
       <form action="{% url 'gnosis:delete_reply' q.id %}" method="POST">
