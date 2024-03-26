@@ -1,6 +1,7 @@
 crispy-bootstrap5==2024.2
 Django==5.0.2
 django-crispy-forms==2.1
+django-markdownfield==0.11.0
 google-generativeai==0.4.1
 Markdown==3.6
 pillow==10.2.0

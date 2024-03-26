@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gnosis_app',
     'crispy_forms',
     'crispy_bootstrap5',
+    'markdownfield',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+from markdownfield.models import MarkdownField, RenderedMarkdownField
+from markdownfield.validators import VALIDATOR_STANDARD
+
 
 class Question(models.Model):
 
@@ -67,7 +69,8 @@ class Comment(models.Model):
 
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user_comment')
     ques = models.ForeignKey(Question,on_delete=models.CASCADE,related_name='ques_comment')
-    content = models.TextField()
+    content = MarkdownField(rendered_field='content_rendered', validator=VALIDATOR_STANDARD)
+    content_rendered = RenderedMarkdownField(default='')
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

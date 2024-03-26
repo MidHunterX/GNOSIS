@@ -52,15 +52,17 @@
 
 ## Technologies Used
 
-| Name                 | Usage                              |
-| -------------------- | ---------------------------------- |
-| virtualenv           | Python package virtual environment |
-| Django               | Python webapp framework            |
-| django-crispy-forms  | For all Input Forms                |
-| crispy-bootstrap5    | Bootstrap for Crispy Forms         |
-| django-markdownfield | Markdown input and storage         |
-| Bootstrap v5.3       | CSS Framework                      |
-| Fontawesome          | CSS Icons Framework                |
+| Name                 | Usage                                   |
+| -------------------- | --------------------------------------- |
+| virtualenv           | Python package virtual environment      |
+| Django               | Python webapp framework                 |
+| django-crispy-forms  | For all Input Forms                     |
+| crispy-bootstrap5    | Bootstrap for Crispy Forms              |
+| django-markdownfield | Raw Markdown input and storage          |
+| bleach               | HTML Sanitizier for storing MD to DB    |
+| Bootstrap v5.3       | CSS Framework                           |
+| Fontawesome          | CSS Icons Framework                     |
+| easymde              | Markdown Editor Frontend for User Input |
 
 ## Initializing Project
 
