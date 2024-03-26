@@ -6,9 +6,9 @@
 
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
-- ![](https://geps.dev/progress/90) Database Modelling and Implementation
-- ![](https://geps.dev/progress/70) Program Logic Design and Implementation
-- ![](https://geps.dev/progress/35) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/100) Database Modelling and Implementation
+- ![](https://geps.dev/progress/80) Program Logic Design and Implementation
+- ![](https://geps.dev/progress/45) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
 ## Project Requirements
