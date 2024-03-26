@@ -7,8 +7,8 @@
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/90) Database Modelling and Implementation
-- ![](https://geps.dev/progress/50) Program Logic Design and Implementation
-- ![](https://geps.dev/progress/10) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/60) Program Logic Design and Implementation
+- ![](https://geps.dev/progress/35) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
 ## Project Requirements
@@ -34,7 +34,10 @@
 - [x] Toggle between Uploader and Viewer Mode
 - [x] Auto Generate answers with Gemini AI
 - [x] Answer questions asked by other registered accounts in plaintext
-- [ ] Answer questions asked by other registered accounts in markdown
+- [x] Answer questions asked by other registered accounts in markdown
+    - [x] Sanitize problematic HTML tags for security
+    - [x] Model in Database for storing Sanitized Data
+    - [x] Renderer for stored markdown code
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
