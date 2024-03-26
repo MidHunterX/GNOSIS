@@ -45,7 +45,7 @@
 
 ### Navigation Related Requirements
 
-- [ ] Search for all questions and answers
+- [x] Query questions using fuzzy logic
 - [ ] Search for questions and answers based on Department
 - [ ] Explore questions based on Department
 

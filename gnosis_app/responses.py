@@ -14,14 +14,36 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+# Google Generative AI POST Request
 import requests
+# Markdown Renderer
 import markdown
+# Fuzzy Search Logic
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 
 
 # =========================== For Initial Testing =========================== #
 
 
-from django.http import HttpResponse
+def fuzzy_search(request):
+    query = request.GET.get('q', '')
+    threshold = 60
+
+    if query:
+        # Perform fuzzy search on the title field
+        questions = Question.objects.all()
+        results = process.extract(query, questions, scorer=fuzz.token_sort_ratio)
+        fuzzy_results = [result[0] for result in results if result[1] >= threshold]
+    else:
+        fuzzy_results = []
+
+    context = {
+        # 'query': query,
+        'ques': fuzzy_results,
+    }
+
+    return render(request , 'gnosis/ques_list.html' , context = context)
 
 
 def test(request):
@@ -47,6 +69,13 @@ def ques_list(request):
     if request.method == 'POST':
         input_text = request.POST.get('input_text')
         if input_text:
+            # Query Database for Questions (Fuzzy Logic)
+            threshold = 60
+            questions = Question.objects.all()
+            results = process.extract(input_text, questions, scorer=fuzz.token_sort_ratio)
+            ques = [result[0] for result in results if result[1] >= threshold]
+
+            # Query Generative AI for Answer
             # api_key = os.getenv('GOOGLE_API_KEY')
             api_key = 'AIzaSyBo_13250kxL6U9C3O5pjVa9CI0FDjLDGM'
             url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
@@ -61,7 +90,8 @@ def ques_list(request):
                 response = requests.post(url, headers=headers, json=data)
             except requests.exceptions.RequestException:
                 output_text = "You seem to be offline. To generate answers, you need internet access"
-                return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
+                context = {'input_text': input_text, 'output_text': output_text, 'ques': ques}
+                return render(request, 'gnosis/ques_generated.html', context = context)
 
             # Recieve POST response
             if response.status_code == 200:
@@ -72,7 +102,8 @@ def ques_list(request):
             else:
                 output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
 
-            return render(request, 'gnosis/ques_generated.html', {'input_text': input_text, 'output_text': output_text})
+            context = {'input_text': input_text, 'output_text': output_text, 'ques': ques}
+            return render(request, 'gnosis/ques_generated.html', context = context)
 
     # Community Generated Question List
     ques = Question.objects.all().order_by('-id')
