@@ -38,6 +38,7 @@
     - [x] Sanitize problematic HTML tags for security
     - [x] Model in Database for storing Sanitized Data
     - [x] Renderer for stored markdown code
+- [ ] Answer questions asked by other registered accounts in image
 - [ ] Answer questions asked by other registered accounts in audio
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
@@ -61,7 +62,7 @@
 | Django               | Python webapp framework                 |
 | django-crispy-forms  | For all Input Forms                     |
 | crispy-bootstrap5    | Bootstrap for Crispy Forms              |
-| django-markdownfield | Raw Markdown input and storage          |
+| django-markdownfield | Raw Markdown storage model and renderer |
 | bleach               | HTML Sanitizier for storing MD to DB    |
 | Bootstrap v5.3       | CSS Framework                           |
 | Fontawesome          | CSS Icons Framework                     |
