@@ -48,20 +48,18 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
 
-## Navigation Related Features
-
-- [x] Query questions using fuzzy logic
-- [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
-- [ ] Split Uploader/Viewer mode change screen
-- [ ] Profile options dropdown list
-- [ ] Search for questions and answers based on Department (optional)
-- [ ] Explore questions based on Department (optional)
-
-## Extra Features
+## User Interface Features
 
 - [x] Switch between Light mode and Dark mode
 - [x] Fully featured markdown input formatting UI
-- [ ] Answer Code Syntax Highlighting with Pygments
+- [x] Query questions using fuzzy logic
+- [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
+- [x] Show Generating Status on Answer Generation
+- [ ] Split Uploader/Viewer mode selection screen
+- [ ] Dropdown list for Profile Settings
+- [ ] Search for questions and answers based on Department (optional)
+- [ ] Explore questions based on Department (optional)
+- [ ] Answer Code Syntax Highlighting with Pygments (optional)
 
 # 📦 Technologies Used
 
