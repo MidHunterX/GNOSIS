@@ -2,6 +2,7 @@
 {% load tags %}
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -21,6 +22,7 @@
       {% block title %}{% endblock %} 
     </title>
   </head>
+
   <body data-bs-theme="dark">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
@@ -57,13 +59,14 @@
             {% endif %}
           </ul>
 
-          <ul class="navbar-nav mx-auto">
-            <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
+          <!-- TOGGLE VIEWER MODE - UPLOADER MODE -->
+          <div class="navbar-nav mx-auto">
             {% if request.user.is_authenticated %}
+            <p class="nav-link my-0">Switch to:</p>
             <button id="showButton" class="btn btn-outline-info">Uploader Mode</button>
             <button id="hideButton" class="btn btn-outline-info" style="display: none;">Viewer Mode</button>
             {% endif %}
-          </ul>
+          </div>
 
           <!-- TOGGLE DARK MODE - LIGHT MODE -->
           <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
@@ -74,9 +77,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'gnosis:profilepage' username=request.user %}">
                 {% if request.user.profile.photo %}
-                <img src="{{ request.user.profile.photo.url }}" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
+                <img src="{{ request.user.profile.photo.url }}" width="23" height="23" class="rounded-circle me-1" alt="Custom Profile Pic">
                   {% else %}
-                <img src="{% static 'default.png' %}" width="23" height="23" class="d-inline-block align-top" alt="profilePic">
+                <img src="{% static 'default.png' %}" width="23" height="23" class="rounded-circle me-1" alt="Default Profile Pic">
                   {% endif %}
                   {{ request.user }}
               </a>
