@@ -47,7 +47,7 @@
           {% if request.user.is_authenticated %}
           <div class="navbar-nav mx-auto">
             <p class="nav-link my-0">Current mode:</p>
-            <button id="showButton" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#splitscreenModal">Viewer Mode</button>
+            <button id="showButton" class="btn btn-outline-info" style="display: none;" data-bs-toggle="modal" data-bs-target="#splitscreenModal">Viewer Mode</button>
             <button id="hideButton" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#splitscreenModal">Uploader Mode</button>
           </div>
           {% endif %}
