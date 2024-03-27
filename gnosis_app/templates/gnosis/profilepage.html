@@ -2,24 +2,27 @@
 {% load static %}
 {% block title %}Edit Profile | {{ block.super }}{% endblock %}
 {% block content %}
-<div class="row border border-3 border-primary rounded-4 p-5">
+<div class="row border border-3 border-primary rounded-4">
 
-  <!-- PROFILE PIC -->
-  <div class="col text-center">
-    {% if user.profile.photo %}
-    <img src="{{ user.profile.photo.url }}" class="mx-auto d-block rounded-circle" alt="avatar" width="150" height="150">
-      {% else %}
-    <img src="{% static 'default.png' %}" class="mx-auto d-block rounded-circle" alt="avatar" width="150" , height="150">
-      {% endif %}
-      {% if request.user.is_authenticated %}
-      {% if request.user == user %}
-    <a class="btn btn-secondary mb-2 my-2" href="{% url 'gnosis:edit_profile' %}">Edit Profile</a>
+  <div class="p-0 position-absolute">
+    {% if request.user.is_authenticated %}
+    {% if request.user == user %}
+    <a class="btn btn-primary float-start" href="{% url 'gnosis:edit_profile' %}"> <i class="fas fa-user-pen"></i> Edit Profile</a>
     {% endif %}
     {% endif %}
   </div>
 
+  <!-- PROFILE PIC -->
+  <div class="col text-center my-auto">
+    {% if user.profile.photo %}
+    <img src="{{ user.profile.photo.url }}" class="mx-auto d-block rounded-circle" alt="avatar" width="150" height="150">
+    {% else %}
+    <img src="{% static 'default.png' %}" class="mx-auto d-block rounded-circle" alt="avatar" width="150" , height="150">
+    {% endif %}
+  </div>
+
   <!-- PROFILE DETAILS -->
-  <div class="col">
+  <div class="col my-auto">
     <div class="tab-content py-4">
       <div class="tab-pane active" id="profile">
         <h6>@{{user.username}}</h6>
