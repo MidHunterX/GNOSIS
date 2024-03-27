@@ -33,9 +33,13 @@
       <form action="{% url 'gnosis:ques_likes' %}" method="POST">
         {% csrf_token %}
         {% if is_liked %}
-        <button class="btn btn-primary me-3" type="submit" name="q_id" value="{{ q.id }}"><i class="fas fa-thumbs-up"></i> Liked <span class="badge rounded-pill text-bg-secondary">{{ likes_count }}</span></button>
+        <button class="btn btn-primary me-3" type="submit" name="q_id" value="{{ q.id }}"><i class="fas fa-thumbs-up"></i> Liked
+          <span class="ms-2 badge text-bg-tertiary">{{ likes_count }}</span>
+        </button>
         {% else %}
-        <button class="btn btn-outline-primary me-3" type="submit" name="q_id" value="{{ q.id }}"><i class="fa fa-thumbs-up"></i> Like <span class="badge rounded-pill text-bg-secondary">{{ likes_count }}</span></button>
+        <button class="btn btn-outline-primary me-3" type="submit" name="q_id" value="{{ q.id }}"><i class="fa fa-thumbs-up"></i> Like
+          <span class="ms-2 badge text-bg-tertiary">{{ likes_count }}</span>
+        </button>
         {% endif %}
       </form>
       <form action="{% url 'gnosis:ques_fav' %}" method="POST">
