@@ -11,19 +11,24 @@
 - ![](https://geps.dev/progress/45) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
-## Project Requirements
+## Project Features
 
-### Profile Related Requirements
+### Profile Related Features
 
 - [x] Register an account
 - [x] Show error messages on unsuccessful authentication
 - [x] Login with registered account on successful authentication
 - [x] Edit registered account details
+- [x] Upload Pictures to set as Profile Display Picture in account settings
+- [ ] Set default engineering department in account settings
 - [x] Logout of registered account
+- [x] View own registered account
 - [x] View other registered accounts
 - [x] Upload Pictures for Profile Picture
+- [x] Toggle between Uploader and Viewer Mode
+- [ ] Show Split Uploader/Viewer mode change screen after login
 
-### Question Related Requirements
+### Question Related Features
 
 - [x] Create questions in plaintext
 - [x] Read questions
@@ -31,7 +36,6 @@
 - [x] Delete questions
 - [x] Add questions to favorites list
 - [x] Optional ability to restrict comments on study materials / posts
-- [x] Toggle between Uploader and Viewer Mode
 - [x] Auto Generate answers with Gemini AI
 - [x] Answer questions asked by other registered accounts in plaintext
 - [x] Answer questions asked by other registered accounts in markdown
@@ -43,7 +47,7 @@
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
 
-### Navigation Related Requirements
+### Navigation Related Features
 
 - [x] Query questions using fuzzy logic
 - [ ] Search for questions and answers based on Department
@@ -52,6 +56,7 @@
 ### Extra Features
 
 - [x] Switch between Light mode and Dark mode
+- [x] Fully featured markdown input formatting UI
 - [ ] Answer Code Syntax Highlighting with Pygments
 
 ## Technologies Used
@@ -185,6 +190,20 @@ These are design choices made by big tech companies which are proven to be one o
 | Quora style answers          | ques_details page                              |
 | Gmail Textbox style MD input | ques_details page multimedia input             |
 | Whatsapp Attach UI           | ques_details input more section                |
+
+| Screen                     | Link                                              |
+| -------------------------- | ------------------------------------------------- |
+| Profile Card               | https://codepen.io/gayane-gasparyan/pen/jOmaBQK   |
+| Profile Card 2             | https://codepen.io/suthaethaepo/pen/rNLKwrV       |
+| Buttons                    | https://codepen.io/yuhomyan/pen/OJMejWJ           |
+| Front Page                 | https://codepen.io/georgedoescode/pen/XWNmvro     |
+| Selection Screen with Info | https://codepen.io/pleasedonotdisturb/pen/abqmOvZ |
+| Selection Screen           | https://codepen.io/ohmiler/pen/MMoNmP             |
+| Game Menu Screen UI        | https://codepen.io/cchambers/pen/jqNrrG           |
+| Cool Holo card effect      | https://codepen.io/simeydotme/pen/PrQKgo          |
+| Search Bar Animation       | https://codepen.io/jkantner/pen/eYmvvqQ           |
+| Search Bar Big             | https://codepen.io/tekon92/pen/BzXypJ             |
+| Answer / Post UI           | https://codepen.io/TurkAysenur/pen/QWyPMgq        |
 
 ## Snippets for Development
 
