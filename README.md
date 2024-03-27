@@ -50,6 +50,7 @@
 ### Navigation Related Features
 
 - [x] Query questions using fuzzy logic
+- [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
 - [ ] Search for questions and answers based on Department
 - [ ] Explore questions based on Department
 
