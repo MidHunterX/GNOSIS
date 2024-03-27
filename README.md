@@ -56,7 +56,7 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
 - [x] Show Generating Status on Answer Generation
 - [ ] Split Uploader/Viewer mode selection screen
-- [ ] Dropdown list for Profile Settings
+- [x] Dropdown list for all Profile Functions
 - [ ] Search for questions and answers based on Department (optional)
 - [ ] Explore questions based on Department (optional)
 - [ ] Answer Code Syntax Highlighting with Pygments (optional)
