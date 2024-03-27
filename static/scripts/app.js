@@ -31,9 +31,9 @@ themeToggle.addEventListener('click', function() {
 });
 
 
-/*========================*\
- * VIEWER / UPLOADER MODE *
-\*========================*/
+/*=================================*\
+ * VIEWER / UPLOADER TOGGLE BUTTON * -> [DEPRECATED]
+\*=================================*/
 
 function toggleAnswerBlock() {
   const block = document.getElementById('uploaderMode');
@@ -79,4 +79,61 @@ function toggleAnswerBlock() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', toggleAnswerBlock);
+// document.addEventListener('DOMContentLoaded', toggleAnswerBlock);
+
+
+
+/*=============================*\
+ * SPLIT SCREEN SELECTION MODE *
+\*=============================*/
+
+function splitscreenSelectMode() {
+  const uploaderMode = document.getElementById('uploaderMode');
+  // INSIDE MODAL
+  const viewModeButton = document.getElementById('viewMode');
+  const uploadModeButton = document.getElementById('uploadMode');
+  // ON NAVBAR
+  const showButton = document.getElementById('showButton');
+  const hideButton = document.getElementById('hideButton');
+
+  // Check if the uploaderMode was previously hidden
+  let isHidden = localStorage.getItem('isHidden');
+
+  // Default Mode [true=Viewer, false=Uploader]
+  if (isHidden === null) {
+    isHidden = 'true';
+  }
+
+  function updateUploaderModeVisibility(hidden) {
+    if (hidden === 'true') {
+      // console.log("Hidden")
+      localStorage.setItem('isHidden', 'true');
+      if (uploaderMode) {
+        uploaderMode.style.display = 'none';
+      }
+      showButton.style.display = 'inline-block';
+      hideButton.style.display = 'none';
+    } else {
+      // console.log("Not Hidden")
+      localStorage.setItem('isHidden', 'false');
+      if (uploaderMode) {
+        uploaderMode.style.display = 'block';
+      }
+      showButton.style.display = 'none';
+      hideButton.style.display = 'inline-block';
+    }
+  }
+
+  // Initialize visibility based on local storage
+  updateUploaderModeVisibility(isHidden);
+
+  viewModeButton.addEventListener('click', function() {
+    updateUploaderModeVisibility('true');
+  });
+
+  uploadModeButton.addEventListener('click', function() {
+    updateUploaderModeVisibility('false');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', splitscreenSelectMode);

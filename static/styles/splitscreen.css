@@ -1,0 +1,38 @@
+.splitscreen {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.split {
+  padding-top: 35vh;
+  padding-bottom: 35vh;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.split:hover {
+  flex-basis: 85%;
+}
+
+.split_left {
+  background: url("../bg-viewer.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.split_right {
+  background: url("../bg-uploader.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.box {
+  width: 100%;
+  max-width: 380px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+}
