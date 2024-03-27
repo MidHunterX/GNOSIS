@@ -2,18 +2,18 @@
 
 > For sharing knowledge
 
-## Development Progress
+## 💻 Development Progress
 
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
-- ![](https://geps.dev/progress/80) Program Logic Design and Implementation
+- ![](https://geps.dev/progress/80) Backend Server Logic Design and Implementation
 - ![](https://geps.dev/progress/45) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
-## Project Features
+# ⚙️ Project Features
 
-### Profile Related Features
+## Profile Related Features
 
 - [x] Register an account
 - [x] Show error messages on unsuccessful authentication
@@ -28,7 +28,7 @@
 - [x] Toggle between Uploader and Viewer Mode
 - [ ] Show Split Uploader/Viewer mode change screen after login
 
-### Question Related Features
+## Question Related Features
 
 - [x] Create questions in plaintext
 - [x] Read questions
@@ -47,20 +47,20 @@
 - [ ] Answer questions asked by other registered accounts in video
 - [ ] Generate research materials with duckduckgo API
 
-### Navigation Related Features
+## Navigation Related Features
 
 - [x] Query questions using fuzzy logic
 - [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
 - [ ] Search for questions and answers based on Department
 - [ ] Explore questions based on Department
 
-### Extra Features
+## Extra Features
 
 - [x] Switch between Light mode and Dark mode
 - [x] Fully featured markdown input formatting UI
 - [ ] Answer Code Syntax Highlighting with Pygments
 
-## Technologies Used
+# 📦 Technologies Used
 
 | Name                 | Usage                                       |
 | -------------------- | ------------------------------------------- |
@@ -74,8 +74,9 @@
 | Fontawesome          | CSS Icons Framework                         |
 | easymde              | Markdown Editor Frontend for User Input     |
 | fuzzywuzzy           | Fuzzy String Sequence and Pattern detection |
+| python-Levenshtein   | String similarity and distance operations   |
 
-## Initializing Project
+# 🆕 Initializing Project
 
 ### Clone the project
 
@@ -134,7 +135,7 @@ Username: admin <br>
 Email address: admin@gnosis.com <br>
 Password: admin
 
-## Running Project
+# 🏃 Running Project
 
 cd into this project and do the following steps
 
@@ -180,7 +181,7 @@ Press Ctrl+C to close the server and either close the server console window or u
 deactivate
 ```
 
-## Snippets for Development
+# ✂️ Snippets for Development
 
 ### Re-applying Migrations (Col not found error)
 
