@@ -11,12 +11,33 @@
   <form class="d-flex justify-content-center" id="form" method="post">
     {% csrf_token %}
     <label for="input_text" class="visually-hidden">Question:</label>
-    <input type="text" name="input_text" id="input_text" placeholder="Ask a question!" class="btn btn-outline-secondary">
-    <input type="submit" value="Ask" class="btn btn-primary ms-2">
+    <input type="text" name="input_text" id="input_text" placeholder="Write a question!" class="btn btn-outline-secondary">
+    <!-- ASK BUTTON -->
+    <button id="submitBtn" type="submit" class="btn btn-primary ms-2">Ask Question</button>
+    <!-- GENERATING ANSWER BUTTON -->
+    <button id="loadingBtn" class="btn btn-primary d-none ms-2" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <span role="status">Generating Answer...</span>
+    </button>
   </form>
+
+  <!-- ADDED SCRIPT HERE TO PREVENT LOADING ON OTHER PAGES -->
+  <script>
+    const form = document.getElementById('form');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingBtn = document.getElementById('loadingBtn');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      submitBtn.classList.add('d-none');
+      loadingBtn.classList.remove('d-none');
+      form.submit();
+    });
+  </script>
 </div>
 
-  <!-- COMMUNITY ASKED QUESTIONS -->
+
+<!-- COMMUNITY ASKED QUESTIONS -->
 <div>
   <h2 class="display-6 d-flex justify-content-center"><strong>Asked Questions :</strong></h2>
   <hr class="my-5 ">
