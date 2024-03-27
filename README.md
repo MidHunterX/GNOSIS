@@ -28,7 +28,6 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] View other registered accounts
 - [x] Upload Pictures for Profile Picture
 - [x] Toggle between Uploader and Viewer Mode
-- [ ] Show Split Uploader/Viewer mode change screen after login
 
 ## Question Related Features
 
@@ -53,8 +52,10 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 
 - [x] Query questions using fuzzy logic
 - [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
-- [ ] Search for questions and answers based on Department
-- [ ] Explore questions based on Department
+- [ ] Split Uploader/Viewer mode change screen
+- [ ] Profile options dropdown list
+- [ ] Search for questions and answers based on Department (optional)
+- [ ] Explore questions based on Department (optional)
 
 ## Extra Features
 
