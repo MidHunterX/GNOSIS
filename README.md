@@ -179,32 +179,6 @@ Press Ctrl+C to close the server and either close the server console window or u
 deactivate
 ```
 
-## UI/UX Design Inspirations
-
-These are design choices made by big tech companies which are proven to be one of the best designs when it comes to rich user experience.
-
-| Style Inspiration            | Project Implementation                         |
-| ---------------------------- | ---------------------------------------------- |
-| Rivals style selection mode  | Full screen modal. Esc to quit bottom tagline. |
-| Whatsapp Group style Message | Answer suggestions                             |
-| Quora style answers          | ques_details page                              |
-| Gmail Textbox style MD input | ques_details page multimedia input             |
-| Whatsapp Attach UI           | ques_details input more section                |
-
-| Screen                     | Link                                              |
-| -------------------------- | ------------------------------------------------- |
-| Profile Card               | https://codepen.io/gayane-gasparyan/pen/jOmaBQK   |
-| Profile Card 2             | https://codepen.io/suthaethaepo/pen/rNLKwrV       |
-| Buttons                    | https://codepen.io/yuhomyan/pen/OJMejWJ           |
-| Front Page                 | https://codepen.io/georgedoescode/pen/XWNmvro     |
-| Selection Screen with Info | https://codepen.io/pleasedonotdisturb/pen/abqmOvZ |
-| Selection Screen           | https://codepen.io/ohmiler/pen/MMoNmP             |
-| Game Menu Screen UI        | https://codepen.io/cchambers/pen/jqNrrG           |
-| Cool Holo card effect      | https://codepen.io/simeydotme/pen/PrQKgo          |
-| Search Bar Animation       | https://codepen.io/jkantner/pen/eYmvvqQ           |
-| Search Bar Big             | https://codepen.io/tekon92/pen/BzXypJ             |
-| Answer / Post UI           | https://codepen.io/TurkAysenur/pen/QWyPMgq        |
-
 ## Snippets for Development
 
 ### Re-applying Migrations (Col not found error)
