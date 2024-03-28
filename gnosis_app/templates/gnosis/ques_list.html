@@ -6,23 +6,30 @@
 
 <body>
 
-<!-- ASK GENERATIVE AI -->
-<div class="form-container mt-5 p-5">
-  <form class="d-flex justify-content-center" id="form" method="post">
-    {% csrf_token %}
-    <label for="input_text" class="visually-hidden">Question:</label>
-    <input type="text" name="input_text" id="input_text" placeholder="Write a question!" class="btn btn-outline-secondary">
-    <!-- ASK BUTTON -->
-    <button id="submitBtn" type="submit" class="btn btn-primary ms-2">Ask Question</button>
-    <!-- GENERATING ANSWER BUTTON -->
-    <button id="loadingBtn" class="btn btn-primary d-none ms-2" type="button" disabled>
-      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-      <span role="status">Generating Answer...</span>
-    </button>
-  </form>
+<!-- COMMUNITY ASKED QUESTIONS -->
+  <!-- <h2 class="display-6 d-flex justify-content-center"><strong>Asked Questions :</strong></h2> -->
+  <h2 class="display-6 mb-0">Questions Asked</h2>
+  <p>by Community</p>
+  <hr class="my-4 ">
 
-  <!-- ADDED SCRIPT HERE TO PREVENT LOADING ON OTHER PAGES -->
-  <script>
+
+  <!-- ASK GENERATIVE AI -->
+  <div class="p-4 border border-2 rounded-4 bg-body-secondary shadow">
+    <form class="d-flex justify-content-center" id="form" method="post">
+      {% csrf_token %}
+      <label for="input_text" class="visually-hidden">Question:</label>
+      <input type="text" name="input_text" id="input_text" placeholder="Write a question here..." class="col-form-label flex-fill">
+      <!-- ASK BUTTON -->
+      <button id="submitBtn" type="submit" class="btn btn-primary ms-3">Search Question</button>
+      <!-- GENERATING ANSWER BUTTON -->
+      <button id="loadingBtn" class="btn btn-primary d-none ms-3" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Generating Answer...</span>
+      </button>
+    </form>
+
+    <!-- ADDED SCRIPT HERE TO PREVENT LOADING ON OTHER PAGES -->
+    <script>
     const form = document.getElementById('form');
     const submitBtn = document.getElementById('submitBtn');
     const loadingBtn = document.getElementById('loadingBtn');
@@ -33,38 +40,35 @@
       loadingBtn.classList.remove('d-none');
       form.submit();
     });
-  </script>
-</div>
-
-
-<!-- COMMUNITY ASKED QUESTIONS -->
-<div>
-  <h2 class="display-6 d-flex justify-content-center"><strong>Asked Questions :</strong></h2>
-  <hr class="my-5 ">
-
-  <!-- QUESTION LIST -->
-  {% for q in ques %}
-  <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
-    <h2><p>{{q.title}}</p></h2>
-    <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
-      <span class="float-end">
-        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
-        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
-        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
-      </span>
-    </p>
-    {% if q.body %}
-      <h4>Description:</h4><h6>{{q.body}}</h6>
-    {% endif %}
+    </script>
   </div>
   <br>
-  {% endfor %}
 
-</div>
-<br>
-<br>
-<blockquote class="blockquote text-center">
-  <footer class="blockquote-footer"><strong>You've scrolled to the end of the List!</strong></footer>
-</blockquote>
+
+  <div>
+    <!-- QUESTION LIST -->
+    {% for q in ques %}
+    <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
+      <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
+        <span class="float-end">
+          <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+          <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
+          <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
+        </span>
+      </p>
+      <h2><p>{{q.title}}</p></h2>
+      {% if q.body %}
+      <p>{{q.body}}</p>
+      {% endif %}
+    </div>
+    <br>
+      {% endfor %}
+
+  </div>
+  <br>
+  <br>
+  <blockquote class="blockquote text-center">
+    <footer class="blockquote-footer"><strong>You've scrolled to the end of the List!</strong></footer>
+  </blockquote>
 </body>
-  {% endblock %}
+{% endblock %}

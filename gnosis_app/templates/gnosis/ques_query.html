@@ -1,0 +1,46 @@
+{% extends 'gnosis/base.html' %}
+{% load static %}
+{% block content %}
+
+{% block title %}{{block.super}}{% endblock %}
+
+<div>
+  <div>
+    <h2 class="text-capitalize"><p>Question: {{ input_text }}</p></h2>
+  </div>
+  <hr class="my-4">
+</div>
+
+  <!-- FUZZY QUERIED QUESTION LIST -->
+<div>
+  {% if ques %}
+
+  <h2 class="display-6 mt-4">Related Questions</h2>
+  <hr class="my-4">
+
+  {% for q in ques %}
+  <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
+    <h2><p>{{q.title}}</p></h2>
+    <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
+      <span class="float-end">
+        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
+        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
+      </span>
+    </p>
+    {% if q.body %}
+      <h4>Description:</h4><h6>{{q.body}}</h6>
+    {% endif %}
+  </div>
+  <br>
+  {% endfor %}
+  {% endif %}
+
+</div>
+<br>
+<br>
+<blockquote class="blockquote text-center">
+  <footer class="blockquote-footer"><strong>You've scrolled to the end of the List!</strong></footer>
+</blockquote>
+
+{% endblock %}
