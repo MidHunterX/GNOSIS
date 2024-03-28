@@ -55,6 +55,23 @@ class QuesUpdateForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['content']
-        labels = {'content': ''}
+        fields = ['content', 'video', 'audio']
+        labels = {'content': '' }
+        widgets = {
+            'audio': forms.FileInput(attrs={'accept': 'audio/*'}),
+            'video': forms.FileInput(attrs={'accept': 'video/*'}),
+        }
 
+    def clean_video(self):
+        video = self.cleaned_data.get('video')
+        if video:
+            if not video.name.endswith(('.mp4', '.avi', '.mov')):
+                raise forms.ValidationError('Invalid video file format. Supported formats: .mp4, .avi, .mov')
+        return video
+
+    def clean_audio(self):
+        audio = self.cleaned_data.get('audio')
+        if audio:
+            if not audio.name.endswith(('.mp3', '.wav', '.ogg')):
+                raise forms.ValidationError('Invalid audio file format. Supported formats: .mp3, .wav, .ogg')
+        return audio

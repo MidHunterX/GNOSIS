@@ -140,7 +140,7 @@ def ques_detail(request,id):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(reverse('gnosis:user_login'))
 
-        comment_form = CommentForm(request.POST)
+        comment_form = CommentForm(request.POST, request.FILES)
 
         if comment_form.is_valid():
             cmnt = comment_form.save(commit=False)

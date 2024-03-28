@@ -5,13 +5,12 @@
 {% load tags%}
 {% block content %}
 
-<!-- {% block title %}{{q.title}}|{{block.super}}{% endblock %} -->
-<!-- Button trigger modal -->
 
-<!-- Modal -->
-<div>
-  <h2 class="display-6">Question Details</h2>
-  <hr class="my-4">
+<h2 class="display-6">Question Details</h2>
+<hr class="my-4">
+<div class="p-4 border rounded-4 bg-body-tertiary shadow">
+
+  <!-- ========================== @MAIN QUESTION ========================== -->
   <div>
     <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
       <span class="float-end">
@@ -29,6 +28,7 @@
   <hr class="my-4">
 
 
+  <!-- =================== @REACTION: LIKE AND FAVORITE =================== -->
   <div class="d-flex justify-content-between">
     <div class="d-flex me-3" alt="Reactions 1">
       <form action="{% url 'gnosis:ques_likes' %}" method="POST">
@@ -54,6 +54,7 @@
     </div>
 
 
+    <!-- =================== @REACTION: EDIT AND DELETE =================== -->
     <div class="float-end" alt="Reactions 2">
       {% if request.user == q.author %}
       <a class="btn btn-outline-warning me-3" href="{% url 'gnosis:update_ques' q.id %}"><i class="fas fa-edit"></i> Edit</a>
@@ -84,21 +85,23 @@
           </div>
         </div>
       </div>
-      <!-- <a class="btn btn-outline-danger mb-2" href="{% url 'gnosis:delete_ques' q.id %}"><i class="fas fa-trash"></i> Delete</a> -->
       {% endif %}
     </div>
   </div>
-
 </div>
 
-<hr class="my-4">
-  {% if not q.restrict_comments %}
-<h4>{{ comments.count}} Answers</h4>
+
+<!-- CORRECT COMMENT COUNT -->
+{% if not q.restrict_comments %}
+<h4 class="mt-4">{{ comments.count }} answer{{ comments.count|pluralize:"s" }}</h4>
+<hr>
+
 
 <!-- COMMENTS SECTION -->
 {% for comment in comments %}
 
-<!-- MAIN COMMENT -->
+
+<!-- =========================== @MAIN COMMENT =========================== -->
 <div class="d-flex p-4 border border-secondary rounded-4 shadow">
   <div class="me-4" alt="Comment Profile Picture">
     {% if comment.user.profile.photo %}
@@ -107,33 +110,50 @@
     <img class="rounded-circle" style="background-color: inherit;" src="{% static 'comments.png' %}" height="64" width="64" alt="Generic placeholder image">
       {% endif %}
   </div>
-  <div class="flex-fill" alt="Comment Text">
+  <div class="flex-fill" alt="Comment Content">
     <h5>
       @<a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
       <span class="float-end">{{comment.timestamp}}</span>
     </h5>
+
     <p> {{ comment.content_rendered | safe }} </p>
-      {% if request.user == comment.user %}
+
+    {% if comment.video %}
+    <video width="512" height="512" controls>
+      <source src="{{ comment.video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    {% endif %}
+
+    {% if comment.audio %}
+    <audio controls>
+      <source src="{{ comment.audio.url }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    {% endif %}
+
+    {% if request.user == comment.user %}
     <form action="{% url 'gnosis:delete_comment' q.id %}" method="POST">
       {% csrf_token %}
       <button class="btn btn-outline-danger btn-sm" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-trash"></i> Delete</button>
     </form>
     {% endif %}
+
   </div>
 </div>
 
 
-<!-- MAIN COMMENT REPLY SECTION -->
+<!-- ==================== @MAIN COMMENT REPLY SECTION ==================== -->
 <div class="ms-5" alt="Reply Section for Main Comment">
 
-  <!-- MAIN COMMENT REPLY FORM -->
+  <!-- @MAIN COMMENT REPLY FORM -->
   <form class="d-flex my-4" method="POST" action="{% url 'gnosis:comment_reply' q.id %}">
     {% csrf_token %}
     <input class="form-control me-2" type="text" placeholder="Comment!" name="text" value="">
     <button class="btn btn-outline-primary" type="submit" name="comment_id" value="{{comment.id}}"><b>Comment</b></button>
   </form>
 
-  <!-- MAIN COMMENT REPLIES -->
+  <!-- ====================== @MAIN COMMENT REPLIES ====================== -->
   <!-- <h5>{{ replies|count_reply:comment}} Replies</h5> -->
   {% for reply in replies|in_category:comment %}
   <div class="d-flex p-3 mb-3 border border-1 border-tertiary rounded-4">
@@ -163,10 +183,12 @@
 </div>
 {% endfor %} 
 
-<!-- MAIN POST ANSWER FORM -->
+
+<!-- ======================= @MAIN POST ANSWER FORM ======================= -->
 <div id="uploaderMode">
   <h4>Add your answer below:</h4>
-  <form method="POST">
+  <!-- note: enctype is needed for file upload functionality -->
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ comment_form|crispy }}
 
@@ -197,7 +219,7 @@
   <br><br>
 </div>
 
-<!-- RESTRICTED: NO ANSWER FORM AND NO MAIN POST ANSWER -->
+<!-- ======== @RESTRICTED: NO ANSWER FORM AND NO MAIN POST ANSWER ======== -->
   {% else %}
 <div class="alert alert-danger" role="alert">
   <h6><i class="fas fa-comment-slash"></i> Comments on this post are restricted!</h6>

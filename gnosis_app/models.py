@@ -76,6 +76,8 @@ class Comment(models.Model):
     ques = models.ForeignKey(Question,on_delete=models.CASCADE,related_name='ques_comment')
     content = MarkdownField(rendered_field='content_rendered', validator=VALIDATOR_STANDARD)
     content_rendered = RenderedMarkdownField(default='')
+    video = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+    audio = models.FileField(upload_to=user_directory_path, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
