@@ -54,11 +54,16 @@ class Question(models.Model):
 
 
 
+def user_directory_path(self, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/{1}'.format(self.user.id, filename)
+
+
 class Profile(models.Model):
 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     DOB = models.DateField(null=True,blank=True)
-    photo = models.ImageField(null=True,blank=True)
+    photo = models.ImageField(upload_to=user_directory_path, null=True, blank=True)
 
     def __str__(self):
         return "profile {}".format(self.user.username)
