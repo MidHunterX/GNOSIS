@@ -182,6 +182,19 @@ Press Ctrl+C to close the server and either close the server console window or u
 deactivate
 ```
 
+# Problems Faced
+
+### Question Search Logic
+
+Task: Search for an input question in a database. If question found, return question; else, return generated answer.
+
+- Searching for questions based on string comparison won't work on spelling mistakes and rephrased questions
+- Spelling mistakes issue can be solved using Levenshtein distance which finds the similarity of two strings
+- With that set, the rest of the input can be compared using Fuzzy Logic which returns questions similar enough
+- So, the best approach is to use Fuzzy Logic based on string similarity percentage.
+- If similarity percentage is set high, it might skip slightly rephrased questions.
+- If similarity percentage is set low, wrong questions with similar words might be returned.
+
 # ✂️ Snippets for Development
 
 ### Re-applying Migrations (Col not found error)
