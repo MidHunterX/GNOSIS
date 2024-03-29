@@ -102,7 +102,7 @@
 
 
 <!-- =========================== @MAIN COMMENT =========================== -->
-<div class="d-flex p-4 border border-secondary rounded-4 shadow">
+<div class="d-flex p-4 border bg-body-tertiary rounded-4 shadow">
   <div class="me-4" alt="Comment Profile Picture">
     {% if comment.user.profile.photo %}
     <img class="rounded-circle" style="background-color: inherit;" src="{{ comment.user.profile.photo.url }}" height="64" width="64">
@@ -119,7 +119,7 @@
     <p> {{ comment.content_rendered | safe }} </p>
 
     {% if comment.video %}
-    <video width="512" height="512" controls>
+    <video height="512" controls>
       <source src="{{ comment.video.url }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
