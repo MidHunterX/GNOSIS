@@ -7,12 +7,15 @@
   <div class="col-md-8 p-lg-5 mx-auto my-5">
     <h1 class="display-3 mb-0">Goodbye</h1>
     <h1 class="display-2 fw-bold">{{username}}</h1>
-    <h3 class="fw-normal text-muted mt-4">See you again soon.</h3>
-    <div class="d-flex gap-3 justify-content-center mt-4">
-      <a href="{% url 'gnosis:user_login' %}" class="btn btn-primary">Login</a>
-      <a href="{% url 'gnosis:ques_list' %}" class="btn btn-outline-primary">View Questions</a>
-    </div>
+    <h3 class="fw-normal text-muted mt-4">See you again soon, my fellow knowledge seeker.</h3>
   </div>
+  <p class="text-secondary-emphasis">You will be redirected to login page in 5 seconds</p>
 </div>
 
-  {% endblock %}
+<script>
+  setTimeout(function() {
+    window.location.href = '/login';
+  }, 5000); // waiting time in ms
+</script>
+
+{% endblock %}
