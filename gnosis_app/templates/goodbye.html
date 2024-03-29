@@ -9,13 +9,13 @@
     <h1 class="display-2 fw-bold">{{username}}</h1>
     <h3 class="fw-normal text-muted mt-4">See you again soon, my fellow knowledge seeker.</h3>
   </div>
-  <p class="text-secondary-emphasis">You will be redirected to login page in 5 seconds</p>
+  <p class="text-secondary-emphasis">You will be redirected to login page in 3 seconds</p>
 </div>
 
 <script>
   setTimeout(function() {
     window.location.href = '/login';
-  }, 5000); // waiting time in ms
+  }, 3000); // waiting time in ms
 </script>
 
 {% endblock %}
