@@ -1,4 +1,4 @@
-# GNOSIS
+![](./assets/header.png)
 
 > For sharing knowledge
 
