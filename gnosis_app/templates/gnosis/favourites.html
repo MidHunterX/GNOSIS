@@ -5,7 +5,7 @@
 <div>
   <h2 class="display-6">Favourite Questions</h2>
   <hr class="my-4">
-  {% for q in ques %}
+  {% for q in questions %}
   <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
     <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
       <span class="float-end">
