@@ -5,20 +5,21 @@
 <div>
   <h2 class="display-6">Favourite Questions</h2>
   <hr class="my-4">
-    {% for q in questions %}
-      <div>
-        <h2><p><a style="color: black;" href="{% url 'gnosis:ques_detail' q.id %}">{{q.title}}</a></p></h2>
-        <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
-          <span class="float-end">
-            <span class="badge badge-secondary">Created: {{q.created}}</span>
-            <span class="badge badge-secondary">Updated: {{q.updated}}</span>
-            <span style="text-transform: uppercase;" class="badge badge-secondary">{{q.language}}</span></p>
-        </span>
-        </p>
-        <h4>Description:</h4><h6>{{q.body}}</h6>
-      </div>
-      <br>
-      <hr class="my-4">
+  {% for q in ques %}
+  <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
+    <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
+      <span class="float-end">
+        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
+        <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
+      </span>
+    </p>
+    <h2><p>{{q.title}}</p></h2>
+    {% if q.body %}
+    <p>{{q.body}}</p>
+    {% endif %}
+  </div>
+  <br>
     {% endfor %}
 </div>
 <br>
