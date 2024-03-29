@@ -4,7 +4,7 @@
 
 The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform the way individuals engage with and acquire knowledge in the realm of computer functionality. In today's rapidly evolving technological landscape, the demand for comprehensive and accessible information has never been greater. This platform seeks to bridge the gap between complex technical concepts and userfriendly learning by providing a dynamic and interactive space where users can post questions and receive tailored responses in their preferred format. At its core, the platform is built on the foundation of inclusivity and accessibility, recognizing that users have diverse learning styles and preferences.
 
-## 💻 Development Progress
+# 💻 Development Progress
 
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
@@ -184,7 +184,7 @@ Press Ctrl+C to close the server and either close the server console window or u
 deactivate
 ```
 
-# Problems Faced
+# ⚠️ Problems Faced
 
 ### Question Search Logic
 
