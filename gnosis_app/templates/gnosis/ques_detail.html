@@ -111,11 +111,11 @@
       {% endif %}
   </div>
   <div class="flex-fill" alt="Comment Content">
-    <h5>
-      @<a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
+    <div class="d-flex justify-content-between">
+      <h5>@<a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a></h5>
       <!-- https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#timesince -->
-      <span class="float-end">{{comment.timestamp|smol_timesince}} ago</span>
-    </h5>
+      <p>{{comment.timestamp|smol_timesince}} ago</p>
+    </div>
 
     {{ comment.content_rendered | safe }}
 
@@ -193,10 +193,10 @@
         {% endif %}
     </div>
     <div class="flex-fill" alt="Reply Text">
-      <h6>
-        @<a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a>
-        <span class="float-end">{{comment.timestamp|smol_timesince}} ago</span>
-      </h6>
+      <div class="d-flex justify-content-between">
+        <h5>@<a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a></h5>
+        <p>{{comment.timestamp|smol_timesince}} ago</p>
+      </div>
       <p>{{ reply.content }}</p>
         {% if request.user == reply.user %}
       <form action="{% url 'gnosis:delete_reply' q.id %}" method="POST">
