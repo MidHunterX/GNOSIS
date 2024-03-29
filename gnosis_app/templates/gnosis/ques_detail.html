@@ -20,7 +20,7 @@
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
       </span>
     </p>
-    <h2><p>Question: {{q.title}}</p></h2>
+    <h2>Question: {{q.title}}</h2>
     {% if q.body %}
     <p>{{q.body}}</p>
     {% endif %}
@@ -113,7 +113,8 @@
   <div class="flex-fill" alt="Comment Content">
     <h5>
       @<a href="{% url 'gnosis:profilepage' comment.user %}">{{comment.user}}</a>
-      <span class="float-end">{{comment.timestamp}}</span>
+      <!-- https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#timesince -->
+      <span class="float-end">{{comment.timestamp|smol_timesince}} ago</span>
     </h5>
 
     {{ comment.content_rendered | safe }}
@@ -194,7 +195,7 @@
     <div class="flex-fill" alt="Reply Text">
       <h6>
         @<a href="{% url 'gnosis:profilepage' reply.user %}">{{reply.user}}</a>
-        <span class="float-end">{{comment.timestamp}}</span>
+        <span class="float-end">{{comment.timestamp|smol_timesince}} ago</span>
       </h6>
       <p>{{ reply.content }}</p>
         {% if request.user == reply.user %}

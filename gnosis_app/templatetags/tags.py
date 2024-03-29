@@ -1,4 +1,5 @@
 from django import template
+from django.template.defaultfilters import timesince
 
 register = template.Library()
 
@@ -12,3 +13,9 @@ def in_category(things, category):
 def count_reply(things, category):
     tt =  things.filter(comment=category)
     return tt.count()
+
+
+@register.filter
+def smol_timesince(value):
+    natural_time = timesince(value)
+    return natural_time.split(",")[0]
