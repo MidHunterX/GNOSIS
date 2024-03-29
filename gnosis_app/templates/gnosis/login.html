@@ -1,7 +1,12 @@
 {% extends 'gnosis/base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-  <h1 class="display-5">Log In!</h1>
+  <!-- CUSTOM CSS: ANIMATED CIRCLES LOGIN SCREEN -->
+  <link rel="stylesheet" href="{% static 'styles/login.css' %}" type="text/css" />
+
+  <h1 class="display-6">Log In!</h1>
+  <!-- <hr class="my-4 "> -->
   <br>
 
   <!-- AUTHENTICATION ERROR MESSAGE -->
@@ -13,15 +18,30 @@
     {% endfor %}
   {% endif %}
 
-  <form method="POST">
+  <!-- CUSTOM LOGIN FORM -->
+  <form method="POST" class="ring mx-auto">
+    <i style="--clr:#00ff0a;"></i>
+    <i style="--clr:#ff0057;"></i>
+    <i style="--clr:#fffd44;"></i>
     {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" class="btn btn-primary mb-2" name="submit" , value='Login'>
-  </form>
-  <br>
+    <!-- { { form|crispy }} -->
+    <div class="login">
+      <div class="inputBx">
+        <input type="text" class="form-control" placeholder="Username" name="username">
+      </div>
+      <div class="inputBx">
+        <input type="password" class="form-control" placeholder="Password" name="password">
+      </div>
+      <div class="inputBx">
+        <input type="submit" class="btn btn-primary mb-2" name="submit" value="Login">
+      </div>
+      <div class="links">
+        <a href="{% url 'gnosis:register' %}">No account?</a>
+        <a href="{% url 'gnosis:register' %}">Sign Up!</a>
+      </div>
+    </div>
     <!-- TODO: Password Reset -->
     <!-- <a class="align-middle" href="(% url 'password_reset' %)">Forgotten Your password?</a><br> -->
-  <h5 class="align-middle">OR</h5>
-  <a class="align-middle" href="{% url 'gnosis:register' %}">Create a new account!</a>
+  </form>
 
 {% endblock %}
