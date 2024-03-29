@@ -121,7 +121,7 @@
 
     {% if comment.video %}
     <div class="mb-3">
-      <video style="width:100%; max-height:640px;" controls>
+      <video class="rounded-4 shadow border bg-body-secondary" style="width:100%; max-height:650px;" controls>
         <source src="{{ comment.video.url }}" type="video/mp4">
           Your browser does not support the video tag.
       </video>
@@ -130,7 +130,7 @@
 
     {% if comment.audio %}
     <div class="mb-3">
-      <audio style="width:100%" controls>
+      <audio class="rounded-4 shadow border bg-body-secondary" style="width:100%" controls>
         <source src="{{ comment.audio.url }}" type="audio/mp3">
           Your browser does not support the audio element.
       </audio>

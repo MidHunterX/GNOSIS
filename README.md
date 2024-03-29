@@ -60,6 +60,7 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Show a welcome page after login
 - [x] Show a goodbye page after logout
 - [x] On goodbye page, redirect users to login page after n seconds
+- [x] Human readable approximate timestamps
 - [ ] Set default engineering department in account settings
 - [ ] Generate research materials with duckduckgo API
 - [ ] Search for questions and answers based on Department
