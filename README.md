@@ -22,7 +22,6 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Login with registered account on successful authentication
 - [x] Edit registered account details
 - [x] Upload Pictures to set as Profile Display Picture in account settings
-- [ ] Set default engineering department in account settings
 - [x] Logout of registered account
 - [x] View own registered account
 - [x] View other registered accounts
@@ -44,9 +43,8 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
   - [x] Model in Database for storing Sanitized Data
   - [x] Renderer for stored markdown code
 - [x] Answer questions asked by other registered accounts with inline image (url) attachment
-- [ ] Answer questions asked by other registered accounts in audio
-- [ ] Answer questions asked by other registered accounts in video
-- [ ] Generate research materials with duckduckgo API
+- [x] Answer questions asked by other registered accounts in audio
+- [x] Answer questions asked by other registered accounts in video
 
 ## User Interface Features
 
@@ -55,11 +53,15 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Query questions using fuzzy logic
 - [x] Generative AI Answer and Fuzzy Search questions logic using a single search bar
 - [x] Show Generating Status on Answer Generation
-- [ ] Split Uploader/Viewer mode selection screen
+- [x] Split Uploader/Viewer mode selection screen
 - [x] Dropdown list for all Profile Functions
-- [ ] Search for questions and answers based on Department (optional)
-- [ ] Explore questions based on Department (optional)
-- [ ] Answer Code Syntax Highlighting with Pygments (optional)
+
+## Optional Features
+- [ ] Set default engineering department in account settings
+- [ ] Generate research materials with duckduckgo API
+- [ ] Search for questions and answers based on Department
+- [ ] Explore questions based on Department
+- [ ] Answer Code Syntax Highlighting with Pygments
 
 # 📦 Technologies Used
 
