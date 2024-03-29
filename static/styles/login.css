@@ -77,7 +77,7 @@
   padding: 12px 20px;
   background: transparent;
   border: 2px solid var(--bs-emphasis-color);
-  border-radius: 40px;
+  border-radius: 20px;
   font-size: 1.2em;
   color: var(--bs-emphasis-color);
   box-shadow: none;
@@ -85,7 +85,9 @@
 }
 .login .inputBx input[type="submit"] {
   width: 100%;
-  background: linear-gradient(45deg, #ff357a, #fff172);
+  color: var(--bs-light);
+  background: var(--bs-primary);
+  /* background: linear-gradient(45deg, #ff357a, #fff172); */
   border: none;
   cursor: pointer;
 }
