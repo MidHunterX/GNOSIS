@@ -28,7 +28,10 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">GNOSIS</a>
+        <a class="navbar-brand" href="/">
+          <img src="{% static '/logo-light.png' %}" height="32">
+          GNŌSIS
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,18 +58,18 @@
           </div>
 
           <!-- TOGGLE DARK MODE - LIGHT MODE -->
-          <button id="themeToggle" class="btn btn-link fas fa-sun"></button>
+          <button id="themeToggle" class="mx-2 btn btn-link fas fa-sun"></button>
 
           <!-- RIGHT SIDE: PROFILE RELATED LINKS -->
           {% if request.user.is_authenticated %}
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <!-- OUTSIDE MENU -->
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {% if request.user.profile.photo %}
-                <img src="{{ request.user.profile.photo.url }}" width="23" height="23" class="rounded-circle me-1" alt="Custom Profile Pic">
+                <img src="{{ request.user.profile.photo.url }}" width="32" height="32" class="rounded-circle me-1" alt="Custom Profile Pic">
                   {% else %}
-                <img src="{% static 'default.png' %}" width="23" height="23" class="rounded-circle me-1" alt="Default Profile Pic">
+                <img src="{% static 'default.png' %}" width="32" height="32" class="rounded-circle me-1" alt="Default Profile Pic">
                 {% endif %}
                 {{ request.user }}
               </a>
