@@ -61,11 +61,11 @@
           {% if request.user.is_authenticated %}
           <ul class="navbar-nav">
             <li class="nav-item me-2">
-              {% if request.user.profile.photo %}
               <a class="nav-link" href="{% url 'gnosis:profilepage' username=request.user %}">
-              <img src="{{ request.user.profile.photo.url }}" width="29" height="29" class="rounded-circle" alt="Custom Profile Pic">
+                {% if request.user.profile.photo %}
+                <img src="{{ request.user.profile.photo.url }}" width="29" height="29" class="rounded-circle" alt="Custom Profile Pic">
                 {% else %}
-              <img src="{% static 'default.png' %}" width="29" height="29" class="rounded-circle" alt="Default Profile Pic">
+                <img src="{% static 'default.png' %}" width="29" height="29" class="rounded-circle" alt="Default Profile Pic">
                 {% endif %}
                 {{ request.user }}
                 </a>
