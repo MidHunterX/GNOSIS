@@ -1,5 +1,6 @@
 {% extends 'gnosis/base.html' %}
 {% load static %}
+{% load tags %}
 {% block title %}Edit Profile | {{ block.super }}{% endblock %}
 {% block content %}
 <div class="row border border-3 border-primary rounded-4">
@@ -46,7 +47,10 @@
   <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
     <p class="mb-0"> <!-- <strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a> -->
       <span class="float-end">
-        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+        {% if q.updated|date:"Y-m-d H:i:s" != q.created|date:"Y-m-d H:i:s" %}
+        <span class="badge rounded-pill text-bg-secondary">Edited: {{ q.updated|smol_timesince }} ago</span>
+        {% endif %}
+        <span class="badge rounded-pill text-bg-secondary">Posted: {{ q.created|smol_timesince }} ago</span>
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
       </span>
