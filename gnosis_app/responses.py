@@ -276,13 +276,20 @@ def register(request):
         return HttpResponse('First logout')
 
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = UserRegistrationForm(request.POST, request.FILES)
 
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-            Profile.objects.create(user = user)
+
+            # Create a profile for the user
+            Profile.objects.create(
+                user=user,
+                DOB=form.cleaned_data.get('DOB'),
+                photo=request.FILES.get('photo')
+            )
+
             return HttpResponseRedirect(reverse('gnosis:user_login'))
     else:
         form = UserRegistrationForm()
@@ -291,7 +298,7 @@ def register(request):
         'form' : form
     }
 
-    return render(request , 'gnosis/register.html',context)
+    return render(request, 'gnosis/register.html', context)
 
 
 

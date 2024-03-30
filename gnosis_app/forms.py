@@ -11,10 +11,13 @@ class LoginForm(forms.Form):
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput)
+    DOB = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
+    photo = forms.ImageField(required=False)
+
     class Meta:
         model = User
-        fields = ['username','first_name','last_name','email'
-                  ,'password','confirm_password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password', 'DOB', 'photo']
+        labels = {'DOB': 'Date of Birth' }
 
     def clean_confirm_password(self):
         password = self.cleaned_data['password']
@@ -34,7 +37,7 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
-    DOB = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    DOB = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
         model = Profile
         fields = ['DOB','photo']
