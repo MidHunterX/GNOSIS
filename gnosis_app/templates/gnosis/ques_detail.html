@@ -140,7 +140,7 @@
     {% endif %}
 
     {% if request.user == comment.user %}
-    <button type="button mt-4" class="btn btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteCommentModal">
+    <button type="button mt-4" class="btn btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteComment{{comment.id}}modal">
       <i class="fas fa-trash"></i> Delete
     </button>
     {% endif %}
@@ -150,7 +150,7 @@
 
 
 <!-- MAIN COMMENT DELETE MODAL -->
-<div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteCommentLabel" aria-hidden="true">
+<div class="modal fade" id="deleteComment{{comment.id}}modal" tabindex="-1" aria-labelledby="deleteCommentLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
