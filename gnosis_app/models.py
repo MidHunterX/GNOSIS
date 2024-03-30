@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from markdownfield.models import MarkdownField, RenderedMarkdownField
 from markdownfield.validators import VALIDATOR_STANDARD
+# from markdownfield.validators import VALIDATOR_NULL # Allows Unsafe HTML
 
 
 class Question(models.Model):
