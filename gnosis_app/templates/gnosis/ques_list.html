@@ -1,6 +1,7 @@
 {% extends 'gnosis/base.html' %}
 {% load static %}
 {% block content %}
+{% load tags %}
 
 {% block title %}{{block.super}}{% endblock %}
 
@@ -18,7 +19,7 @@
     <form class="d-flex justify-content-center" id="form" method="post">
       {% csrf_token %}
       <label for="input_text" class="visually-hidden">Question:</label>
-      <input type="text" name="input_text" id="input_text" placeholder="Write a question here..." class="col-form-label flex-fill">
+      <input type="text" name="input_text" id="input_text" placeholder="Search for a question here" class="col-form-label flex-fill">
       <!-- ASK BUTTON -->
       <button id="submitBtn" type="submit" class="btn btn-primary ms-3">Search Question</button>
       <!-- GENERATING ANSWER BUTTON -->
@@ -43,6 +44,11 @@
     </script>
 
     <!-- ================== @TODO: MORE SEARCH CONTROLS ================== -->
+    <hr class="my-4 ">
+    <div class="d-flex">
+      <button class="me-4 btn btn-outline-primary"><a class="nav-link" href="{% url 'gnosis:ask_question' %}"><i class="fas fa-edit"></i> Write Question</a></button>
+      <button class="me-4 btn btn-outline-primary"><a class="nav-link" href="{% url 'gnosis:show_fav_ques' %}"><i class="fas fa-star"></i> Favourites List</a></button>
+    </div>
 
   </div>
   <br>
@@ -54,7 +60,7 @@
     <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
       <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
         <span class="float-end">
-          <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
+          <span class="badge rounded-pill text-bg-secondary">Asked {{q.created|smol_timesince}} ago</span>
           <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
           <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
         </span>

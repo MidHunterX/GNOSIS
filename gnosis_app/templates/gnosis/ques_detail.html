@@ -14,8 +14,10 @@
   <div>
     <p class="mb-0"><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">@{{q.author}}</a>
       <span class="float-end">
-        <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
-        <span class="badge rounded-pill text-bg-secondary">Updated: {{q.updated}}</span>
+        <span class="badge rounded-pill text-bg-secondary">Posted: {{ q.created|smol_timesince }} ago</span>
+        {% if q.updated|date:"Y-m-d H:i:s" != q.created|date:"Y-m-d H:i:s" %}
+        <span class="badge rounded-pill text-bg-secondary">Updated: {{ q.updated|smol_timesince }} ago</span>
+        {% endif %}
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-primary">{{q.department}}</span>
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
       </span>

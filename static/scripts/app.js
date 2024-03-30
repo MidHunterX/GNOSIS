@@ -9,9 +9,11 @@ const currentTheme = localStorage.getItem('theme') || 'light';
 if (currentTheme === 'dark') {
   bodyTag.setAttribute('data-bs-theme', 'dark');
   themeToggle.classList.add('fa-sun');
+  themeToggle.classList.add('text-secondary-emphasis');
 } else {
   bodyTag.setAttribute('data-bs-theme', 'light');
   themeToggle.classList.add('fa-moon');
+  themeToggle.classList.add('text-warning');
 }
 
 themeToggle.addEventListener('click', function() {
