@@ -120,21 +120,21 @@
 
     {{ comment.content_rendered | safe }}
 
-    {% if comment.video %}
-    <div class="mb-3">
-      <video class="rounded-4 shadow border bg-body-secondary" style="width:100%; max-height:650px;" controls>
-        <source src="{{ comment.video.url }}" type="video/mp4">
-          Your browser does not support the video tag.
-      </video>
-    </div>
-    {% endif %}
-
     {% if comment.audio %}
     <div class="mb-3">
       <audio class="rounded-4 shadow border bg-body-secondary" style="width:100%" controls>
         <source src="{{ comment.audio.url }}" type="audio/mp3">
           Your browser does not support the audio element.
       </audio>
+    </div>
+    {% endif %}
+
+    {% if comment.video %}
+    <div class="mb-3">
+      <video class="rounded-4 shadow border bg-body-secondary" style="width:100%; max-height:650px;" controls>
+        <source src="{{ comment.video.url }}" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
     </div>
     {% endif %}
 
@@ -221,7 +221,12 @@
     <!-- note: enctype is needed for file upload functionality -->
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
+
+      {% comment "Django Forms Overridden Manually Below" %}
       {{ comment_form|crispy }}
+      {% endcomment %}
+
+      <textarea name="content"></textarea>
 
       <script>
       /*=================*\
@@ -232,7 +237,7 @@
         autoDownloadFontAwesome: false, // Already in the project
         previewImagesInEditor: true,
         imagesPreviewHandler: true, // returns img src tag for frontent
-        uploadImage: true, // drag and drop support
+        // uploadImage: true, // @TODO: drag and drop support
         imageMaxSize: '2048*2048*2',
         sideBySideFullscreen: true, // Full screen editing
         toolbar: [
@@ -245,14 +250,18 @@
       });
       </script>
 
-      <!-- =========== @TODO: AUDIO, VIDEO, DOCUMENT ATTACH UI =========== -->
-      <button class="btn btn-primary" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-comment"></i> Answer</button>
-      <div class="btn btn-secondary ms-2" onclick="toggle_attach()"><i class="fas fa-paperclip"></i> Attach Files</div>
-
-      <div class="popup float-end" id="attach" style="display: none;">
-        <div class="btn btn-outline-primary me-2"><i class="fas fa-video"></i> Video</div>
-        <div class="btn btn-outline-primary me-2"><i class="fas fa-music"></i> Audio</div>
-        <div class="btn btn-outline-primary me-2"><i class="fas fa-file"></i> Documents</div>
+      <!-- ============== @AUDIO, VIDEO, DOCUMENT ATTACH UI ============== -->
+      <div id="attach" class="popup" style="display: none;">
+        <div class="row mb-4">
+          <div class="col">
+            <label for="videoForm" class="form-label"><i class="me-2 fas fa-video"></i>Video [ mp4, avi, mov ]</label>
+            <input class="form-control form-control-lg rounded-4 border-2" id="videoForm" type="file" accept=".mp4, .avi, .mov" name="video"></input>
+          </div>
+          <div class="col">
+            <label for="audioForm" class="form-label"><i class="me-2 fas fa-music"></i>Audio [ mp3, wav, ogg ]</label>
+            <input class="form-control form-control-lg rounded-4 border-2" id="audioForm" type="file" accept=".mp3, .wav, .ogg" name="audio"></input>
+          </div>
+        </div>
       </div>
 
       <style>
@@ -267,6 +276,9 @@
         }
       </style>
 
+      <!-- =================== @COMMENT, ATTACH BUTTON =================== -->
+      <button class="btn btn-primary" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-comment"></i> Answer</button>
+      <div class="btn btn-secondary ms-2" onclick="toggle_attach()"><i class="fas fa-paperclip"></i> Attach Files</div>
       <script>
         function toggle_attach() {
           var popup = document.getElementById("attach");
