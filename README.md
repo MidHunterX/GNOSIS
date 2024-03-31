@@ -1,3 +1,5 @@
+> Self Note: Revoke Gemini API Key after presentation
+
 ![](./assets/header.png)
 
 > For sharing knowledge
@@ -9,8 +11,8 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
-- ![](https://geps.dev/progress/95) Backend Server Logic Design and Implementation
-- ![](https://geps.dev/progress/65) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/100) Backend Server Logic Design and Implementation
+- ![](https://geps.dev/progress/85) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/0) Blackbox Testing
 
 # ⚙️ Project Features
