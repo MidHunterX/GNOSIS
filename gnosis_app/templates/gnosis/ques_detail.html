@@ -247,6 +247,37 @@
 
       <!-- =========== @TODO: AUDIO, VIDEO, DOCUMENT ATTACH UI =========== -->
       <button class="btn btn-primary" type="submit" name="comment_id" value="{{comment.id}}"><i class="fas fa-comment"></i> Answer</button>
+      <div class="btn btn-secondary ms-2" onclick="toggle_attach()"><i class="fas fa-paperclip"></i> Attach Files</div>
+
+      <div class="popup float-end" id="attach" style="display: none;">
+        <div class="btn btn-outline-primary me-2"><i class="fas fa-video"></i> Video</div>
+        <div class="btn btn-outline-primary me-2"><i class="fas fa-music"></i> Audio</div>
+        <div class="btn btn-outline-primary me-2"><i class="fas fa-file"></i> Documents</div>
+      </div>
+
+      <style>
+        .popup {
+          visibility: visible;
+          -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+          from {opacity: 0;}
+          to {opacity:1 ;}
+        }
+      </style>
+
+      <script>
+        function toggle_attach() {
+          var popup = document.getElementById("attach");
+          if(popup.style.display === 'none'){
+            popup.style.display = 'block';
+          } else {
+            popup.style.display = 'none';
+          }
+        }
+      </script>
+
     </form>
   </div>
   <br><br>
