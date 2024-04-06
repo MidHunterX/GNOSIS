@@ -19,3 +19,8 @@ def count_reply(things, category):
 def smol_timesince(value):
     natural_time = timesince(value)
     return natural_time.split(",")[0]
+
+
+@register.filter(name='limit_iterations')
+def limit_iterations(value, limit):
+    return value[:limit]
