@@ -11,7 +11,7 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
-- ![](https://geps.dev/progress/80) Backend Server Logic Design and Implementation
+- ![](https://geps.dev/progress/90) Backend Server Logic Design and Implementation
 - ![](https://geps.dev/progress/95) UI/UX Design and Implementation
 - ![](https://geps.dev/progress/50) Blackbox Testing
 
@@ -57,10 +57,9 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Show Generating Status on Answer Generation
 - [x] Split Uploader/Viewer mode selection screen
 - [x] Dropdown list for all Profile Functions
-- [ ] Show a landing page on website load
-- [ ] Searched question initial text answer query with AJAX
-- [ ] Searched question multimedia answer query (more option) with AJAX
-- [ ] Attach answer UI withing Ask Question form for Uploaders
+- [x] Show a landing page on website load
+- [x] Searched question's multimedia answer query options (more option)
+- [ ] Attach answer UI within Ask Question form for Uploaders
 
 ## Optional Features
 - [x] Show a welcome page after login
