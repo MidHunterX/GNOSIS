@@ -11,11 +11,11 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
-- ![](https://geps.dev/progress/100) Backend Server Logic Design and Implementation
-- ![](https://geps.dev/progress/85) UI/UX Design and Implementation
-- ![](https://geps.dev/progress/0) Blackbox Testing
+- ![](https://geps.dev/progress/80) Backend Server Logic Design and Implementation
+- ![](https://geps.dev/progress/95) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/50) Blackbox Testing
 
-# ⚙️ Project Features
+# 🔧 Project Features
 
 ## Profile Related Features
 
@@ -57,17 +57,15 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Show Generating Status on Answer Generation
 - [x] Split Uploader/Viewer mode selection screen
 - [x] Dropdown list for all Profile Functions
+- [ ] Show a landing page on website load
+- [ ] Searched question initial text answer query with AJAX
+- [ ] Searched question multimedia answer query (more option) with AJAX
 
 ## Optional Features
 - [x] Show a welcome page after login
 - [x] Show a goodbye page after logout
 - [x] On goodbye page, redirect users to login page after n seconds
 - [x] Human readable approximate timestamps
-- [ ] Set default engineering department in account settings
-- [ ] Generate research materials with duckduckgo API
-- [ ] Search for questions and answers based on Department
-- [ ] Explore questions based on Department
-- [ ] Answer Code Syntax Highlighting with Pygments
 
 # 📦 Technologies Used
 
