@@ -98,8 +98,9 @@ def ques_list(request):
             }
             # Sending POST request
             try:
-                # ============================================== START TESTING
-                output_text = "This feature is offline for maintenance"
+                response = requests.post(url, headers=headers, json=data)
+            except requests.exceptions.RequestException:
+                output_text = "You seem to be offline. To generate answers, you need internet access"
                 context = {
                     'input_text': input_text,
                     'output_text': output_text,
@@ -111,12 +112,6 @@ def ques_list(request):
                     'ans_text': ans_text,
                 }
                 return render(request, 'gnosis/ques_generated.html', context = context)
-                # ================================================ END TESTING
-                response = requests.post(url, headers=headers, json=data)
-            except requests.exceptions.RequestException:
-                output_text = "You seem to be offline. To generate answers, you need internet access"
-                context = {'input_text': input_text, 'output_text': output_text, 'ques': ques, 'ques_correct': ques_correct}
-                return render(request, 'gnosis/ques_generated.html', context = context)
 
             # Recieve POST response
             if response.status_code == 200:
@@ -127,7 +122,16 @@ def ques_list(request):
             else:
                 output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
 
-            context = {'input_text': input_text, 'output_text': output_text, 'ques': ques, 'ques_correct': ques_correct}
+            context = {
+                'input_text': input_text,
+                'output_text': output_text,
+                'ques': ques,
+                'ques_correct': ques_correct,
+                'answers': answers,
+                'ans_video': ans_video,
+                'ans_audio': ans_audio,
+                'ans_text': ans_text,
+            }
             return render(request, 'gnosis/ques_generated.html', context = context)
 
     # Community Generated Question List
