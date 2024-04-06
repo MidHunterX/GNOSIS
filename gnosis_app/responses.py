@@ -25,29 +25,11 @@ from fuzzywuzzy import process
 
 # =========================== For Initial Testing =========================== #
 
-
-def fuzzy_search(request):
-    query = request.GET.get('q', '')
-    threshold = 60
-
-    if query:
-        # Perform fuzzy search on the title field
-        questions = Question.objects.all()
-        results = process.extract(query, questions, scorer=fuzz.token_sort_ratio)
-        fuzzy_results = [result[0] for result in results if result[1] >= threshold]
-    else:
-        fuzzy_results = []
-
-    context = {
-        # 'query': query,
-        'ques': fuzzy_results,
-    }
-
-    return render(request , 'gnosis/ques_list.html' , context = context)
-
-
 def test(request):
-    return HttpResponse("Henlo you are in de APP")
+
+
+    # return HttpResponse("Henlo you are in de APP")
+    return render(request, "landingpage.html")
 
 
 def greetings(request):

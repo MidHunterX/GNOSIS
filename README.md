@@ -60,6 +60,7 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [ ] Show a landing page on website load
 - [ ] Searched question initial text answer query with AJAX
 - [ ] Searched question multimedia answer query (more option) with AJAX
+- [ ] Attach answer UI withing Ask Question form for Uploaders
 
 ## Optional Features
 - [x] Show a welcome page after login
