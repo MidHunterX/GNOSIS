@@ -26,14 +26,15 @@ from fuzzywuzzy import process
 # =========================== For Initial Testing =========================== #
 
 def test(request):
-
-
     # return HttpResponse("Henlo you are in de APP")
     return render(request, "landingpage.html")
 
 
 def greetings(request):
-    return render(request, "greetings.html", {"name": "User"})
+    if request.user.is_authenticated:
+        return render(request, "greetings.html")
+    else:
+        return render(request, "landingpage.html")
 
 def goodbye(request):
     username = request.GET.get('username')
