@@ -36,7 +36,6 @@
 
   {% for q in ques %}
   <div class="p-4 border rounded-4 bg-body-tertiary shadow" onclick="location.href='{% url 'gnosis:ques_detail' q.id %}'">
-    <h2><p>{{q.title}}</p></h2>
     <p><strong>Author: </strong><a href="{% url 'gnosis:profilepage' q.author %}">{{q.author}}</a>
       <span class="float-end">
         <span class="badge rounded-pill text-bg-secondary">Created: {{q.created}}</span>
@@ -44,6 +43,7 @@
         <span style="text-transform: uppercase;" class="badge rounded-pill text-bg-secondary">{{q.language}}</span>
       </span>
     </p>
+    <h2><p>{{q.title}}</p></h2>
     {% if q.body %}
       <h4>Description:</h4><h6>{{q.body}}</h6>
     {% endif %}
