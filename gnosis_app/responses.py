@@ -52,11 +52,39 @@ def ques_list(request):
     if request.method == 'POST':
         input_text = request.POST.get('input_text')
         if input_text:
+
             # Query Database for Questions (Fuzzy Logic)
-            threshold = 60
+            threshold = 40
             questions = Question.objects.all()
             results = process.extract(input_text, questions, scorer=fuzz.token_sort_ratio)
             ques = [result[0] for result in results if result[1] >= threshold]
+
+            # Query Database for Correct Question (Fuzzy Logic)
+            threshold_high = 80
+            ques_correct = None
+            for result in results:
+                if result[1] >= threshold_high:
+                    ques_correct = result[0]
+                    break
+
+            answers = None
+            ans_video = None
+            ans_audio = None
+            ans_text = None
+            if ques_correct:
+                answers = Comment.objects.all().filter(ques = ques_correct).order_by('-id')
+                for answer in answers:
+                    if answer.video:
+                        ans_video = answer
+                        break
+                for answer in answers:
+                    if answer.audio:
+                        ans_audio = answer
+                        break
+                for answer in answers:
+                    if not answer.video and not answer.audio:
+                        ans_text = answer
+                        break
 
             # Query Generative AI for Answer
             # api_key = os.getenv('GOOGLE_API_KEY')
@@ -70,10 +98,24 @@ def ques_list(request):
             }
             # Sending POST request
             try:
+                # ============================================== START TESTING
+                output_text = "This feature is offline for maintenance"
+                context = {
+                    'input_text': input_text,
+                    'output_text': output_text,
+                    'ques': ques,
+                    'ques_correct': ques_correct,
+                    'answers': answers,
+                    'ans_video': ans_video,
+                    'ans_audio': ans_audio,
+                    'ans_text': ans_text,
+                }
+                return render(request, 'gnosis/ques_generated.html', context = context)
+                # ================================================ END TESTING
                 response = requests.post(url, headers=headers, json=data)
             except requests.exceptions.RequestException:
                 output_text = "You seem to be offline. To generate answers, you need internet access"
-                context = {'input_text': input_text, 'output_text': output_text, 'ques': ques}
+                context = {'input_text': input_text, 'output_text': output_text, 'ques': ques, 'ques_correct': ques_correct}
                 return render(request, 'gnosis/ques_generated.html', context = context)
 
             # Recieve POST response
@@ -85,7 +127,7 @@ def ques_list(request):
             else:
                 output_text = f"Oops, there was an Error: {response.status_code}, {response.text}"
 
-            context = {'input_text': input_text, 'output_text': output_text, 'ques': ques}
+            context = {'input_text': input_text, 'output_text': output_text, 'ques': ques, 'ques_correct': ques_correct}
             return render(request, 'gnosis/ques_generated.html', context = context)
 
     # Community Generated Question List

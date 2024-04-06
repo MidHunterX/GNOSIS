@@ -1,5 +1,6 @@
 {% extends 'gnosis/base.html' %}
 {% load static %}
+{% load tags %}
 {% block content %}
 
 {% block title %}{{block.super}}{% endblock %}
@@ -25,6 +26,49 @@
     <p> {{ output_text | safe }} </p>
   </div>
 </div>
+
+
+
+
+<!-- @CORRECT QUESTION MEDIA QUEQY -->
+{% if ques_correct %}
+  {% if answers %}
+    <h2 class="display-6 mt-4">Answer by community</h2>
+
+    {% if ans_text %}
+        <p>ID: {{ans_text.id}}</p>
+        {{ ans_text.content_rendered | safe }}
+    {% endif %}
+
+    {% if ans_audio %}
+    <p>URL: {{ans_audio.audio.url}}</p>
+    <div class="mb-3">
+      <audio class="rounded-4 shadow border bg-body-secondary" style="width:100%" controls>
+        <source src="{{ ans_audio.audio.url }}" type="audio/mp3">
+          Your browser does not support the audio element.
+      </audio>
+    </div>
+    {% endif %}
+
+    {% if ans_video %}
+    <p>URL: {{ans_video.video.url}}</p>
+    <div class="mb-3">
+      <video class="rounded-4 shadow border bg-body-secondary" style="width:100%; max-height:650px;" controls>
+        <source src="{{ ans_video.video.url }}" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+    </div>
+    {% endif %}
+
+  {% else %}
+    <h2 class="display-6 mt-4">Answer Unavailable in this format</h2>
+  {% endif %}
+<!-- no correct question -->
+{% else %}
+  <h2 class="display-6 mt-4">Answer Unavailable</h2>
+{% endif %}
+
+
 
 
   <!-- FUZZY QUERIED QUESTION LIST -->
