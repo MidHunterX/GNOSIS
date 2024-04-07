@@ -43,6 +43,40 @@ def goodbye(request):
     return render(request, 'goodbye.html', {'username': username})
 
 
+def uploader_form(request):
+
+    if request.method == 'POST':
+
+        question_ask_form = QuestionAskForm(request.POST)
+        comment_form = CommentForm(request.POST, request.FILES)
+
+        if question_ask_form.is_valid() and comment_form.is_valid():
+            ques = question_ask_form.save(commit=False)
+            ques.author = request.user
+            ques.save()
+
+            ques = Question.objects.latest('id')
+
+            cmnt = comment_form.save(commit=False)
+            cmnt.user = request.user
+            cmnt.ques = ques
+            cmnt.save()
+
+            return HttpResponseRedirect(reverse('gnosis:ques_detail', args=(ques.id,)))
+
+    else:
+        question_ask_form = QuestionAskForm()
+        comment_form = CommentForm()
+
+    context = {
+        'question_ask_form': question_ask_form,
+        'comment_form': comment_form,
+    }
+
+    return render(request, 'gnosis/uploader_form.html', context)
+
+
+
 # =========================== End Initial Testing =========================== #
 
 def info(request):

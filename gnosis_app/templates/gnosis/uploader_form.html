@@ -1,0 +1,45 @@
+{% extends 'gnosis/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+  <form id="uploaderMode" method="post" enctype="multipart/form-data">
+    <h1 class="display-6">Write your question</h1>
+    <hr class="my-4">
+    {% csrf_token %}
+    {{ question_ask_form|crispy }}
+
+    <br><br>
+
+    <h1 class="display-6">Share your answer!</h1>
+    <hr class="my-4">
+    {{ comment_form|crispy }}
+    <script>
+      /*=================*\
+       * MARKDOWN EDITOR *
+      \*=================*/
+      const easyMDE = new EasyMDE({
+        element: document.getElementById('id_content'),
+        forceSync: true,
+        autoDownloadFontAwesome: false, // Already in the project
+        previewImagesInEditor: true,
+        imagesPreviewHandler: true, // returns img src tag for frontent
+        // uploadImage: true, // @TODO: drag and drop support
+        imageMaxSize: '2048*2048*2',
+        sideBySideFullscreen: true, // Full screen editing
+        toolbar: [
+          "bold", "italic", "strikethrough", "heading", "|",
+          "code", "quote", "unordered-list", "ordered-list", "horizontal-rule", "|",
+          "clean-block", "link", "image", /* "upload-image", */ "|", 
+          "preview", "side-by-side", "|",
+          "undo", "redo"
+        ],
+      });
+    </script>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+
+  </form>
+
+{% endblock %}

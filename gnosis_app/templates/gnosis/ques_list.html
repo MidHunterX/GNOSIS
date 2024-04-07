@@ -60,8 +60,17 @@
     <!-- ================== @TODO: MORE SEARCH CONTROLS ================== -->
     <hr class="my-4 ">
     <div class="d-flex">
-      <button class="me-4 btn btn-outline-primary"><a class="nav-link" href="{% url 'gnosis:ask_question' %}"><i class="fas fa-edit"></i> Ask a Question</a></button>
-      <button class="me-4 btn btn-outline-primary"><a class="nav-link" href="{% url 'gnosis:show_fav_ques' %}"><i class="fas fa-star"></i> Favourites List</a></button>
+      <button class="me-4 btn btn-outline-primary">
+        <a class="nav-link" href="{% url 'gnosis:ask_question' %}"><i class="fas fa-edit"></i> Ask a Question</a>
+      </button>
+      <button class="me-4 btn btn-outline-primary">
+        <a class="nav-link" href="{% url 'gnosis:show_fav_ques' %}"><i class="fas fa-star"></i> Favourites List</a>
+      </button>
+      <div id="uploaderMode">
+        <button class="me-4 btn btn-outline-primary">
+          <a class="nav-link" href="{% url 'gnosis:uploader_form' %}"><i class="fas fa-book"></i> Share your Knowledge</a>
+        </button>
+      </div>
     </div>
 
   </div>
