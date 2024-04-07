@@ -59,13 +59,19 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Dropdown list for all Profile Functions
 - [x] Show a landing page on website load
 - [x] Searched question's multimedia answer query options (more option)
-- [ ] Attach answer UI within Ask Question form for Uploaders
 
 ## Optional Features
 - [x] Show a welcome page after login
 - [x] Show a goodbye page after logout
 - [x] On goodbye page, redirect users to login page after n seconds
 - [x] Human readable approximate timestamps
+
+## TODO List
+- [ ] Illustration for Hero Section
+- [ ] Landing Page Feature List
+- [ ] Attach answer UI within Ask Question form for Uploaders
+- [ ] Tab style multimedia uploading form
+
 
 # 📦 Technologies Used
 
