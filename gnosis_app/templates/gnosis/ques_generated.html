@@ -13,7 +13,7 @@
 </div>
 
 <!-- MAIN COMMENT -->
-<div class="d-flex p-4 border border-secondary rounded-4 shadow">
+<div class="d-flex p-4 border rounded-4 shadow">
   <div class="me-4" alt="Comment Profile Picture">
     <img class="rounded-circle" style="background-color: inherit;" src="{% static 'gnosis.jpg' %}" height="64" width="64" alt="Generic placeholder image">
   </div>
@@ -34,28 +34,40 @@
 
 <!-- @CORRECT QUESTION MEDIA QUEQY -->
 {% if ques_correct %}
-<h2 class="display-6 mt-4">Answer by community</h2>
+<h2 class="display-6 mt-4">Answer by Community</h2>
 <hr class="my-4">
 {% if answers %}
-<div class="my-4 p-4 border border-3 border-danger bg-body-tertiary rounded-4 shadow">
+<select id="mediaType" class="float-end form-select-lg border border-danger border-3 rounded-4 px-4 ms-4">
+  <option value="text" selected>Text</option>
+  <option value="photo">Photo</option>
+  <option value="audio">Audio</option>
+  <option value="video">Video</option>
+</select>
 
-  <select id="mediaType" class="form-select mb-3">
-    <option value="text" selected>Text</option>
-    <option value="audio">Audio</option>
-    <option value="video">Video</option>
-  </select>
+<div class="my-4 px-4 pt-4 pb-2 border border-3 border-danger bg-body-tertiary rounded-4 shadow">
 
   <div id="textBlock">
     {% if ans_text %}
       {{ ans_text.content_rendered | safe }}
     {% else %}
-      <p>Answer is currently not available in text format yet.</p>
+      <p>Answer is currently not available in <strong>text format</strong>.</p>
+    {% endif %}
+  </div>
+
+  <div id="photoBlock" style="display: none;">
+    {% if ans_photo %}
+    {{ ans_photo.content_rendered | safe }}
+    <div class="mb-3">
+      <img src="{{ ans_photo.photo.url }}" class="img-fluid rounded-4 shadow border bg-body-secondary" style="max-width: 100%;" alt="User Photo">
+    </div>
+    {% else %}
+      <p>Answer is currently not available in <strong>picture format</strong>.</p>
     {% endif %}
   </div>
 
   <div id="audioBlock" style="display: none;">
-    {{ ans_audio.content_rendered | safe }}
     {% if ans_audio %}
+    {{ ans_audio.content_rendered | safe }}
     <div class="mb-3">
       <audio class="rounded-4 shadow border bg-body-secondary" style="width:100%" controls>
         <source src="{{ ans_audio.audio.url }}" type="audio/mp3">
@@ -63,7 +75,7 @@
       </audio>
     </div>
     {% else %}
-      <p>Answer is currently not available in audio format yet.</p>
+      <p>Answer is currently not available in <strong>audio format</strong>.</p>
     {% endif %}
   </div>
 
@@ -77,7 +89,7 @@
       </video>
     </div>
     {% else %}
-      <p>Answer is currently not available in video format yet.</p>
+      <p>Answer is currently not available in <strong>video format</strong>.</p>
     {% endif %}
   </div>
 
@@ -85,17 +97,21 @@
   document.addEventListener('DOMContentLoaded', function () {
     const mediaType = document.getElementById('mediaType');
     const textBlock = document.getElementById('textBlock');
+    const photoBlock = document.getElementById('photoBlock');
     const audioBlock = document.getElementById('audioBlock');
     const videoBlock = document.getElementById('videoBlock');
 
     mediaType.addEventListener('change', function () {
       textBlock.style.display = 'none';
+      photoBlock.style.display = 'none';
       audioBlock.style.display = 'none';
       videoBlock.style.display = 'none';
 
       const selectedOption = mediaType.value;
       if (selectedOption === 'text') {
         textBlock.style.display = 'block';
+      } else if (selectedOption === 'photo') {
+        photoBlock.style.display = 'block';
       } else if (selectedOption === 'audio') {
         audioBlock.style.display = 'block';
       } else if (selectedOption === 'video') {
