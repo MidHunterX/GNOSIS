@@ -1,5 +1,7 @@
 > Self Note: Revoke Gemini API Key after presentation
 
+> Self Note: Enable AI Generation after testing and maintenance
+
 ![](./assets/header.png)
 
 > For sharing knowledge
