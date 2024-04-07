@@ -6,9 +6,9 @@
 <br>
 <form enctype="multipart/form-data" method="POST">
   {% csrf_token %}
-  {{ form|crispy }}
-  <input type="submit" name="submit" class="btn btn-primary mb-2" value="Register">
-  <input type="reset" name="reset" class="btn btn-secondary mb-2" value="Reset">
+  {% crispy form %}
+  <!-- <input type="submit" name="submit" class="btn btn-primary mb-2" value="Register"> -->
+  <!-- <input type="reset" name="reset" class="btn btn-secondary mb-2" value="Reset"> -->
   <br>
   <a href="{% url 'gnosis:user_login' %}">Or Log into an existing account!</a>
 </form>
