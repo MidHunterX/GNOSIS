@@ -120,6 +120,12 @@
 
     {{ comment.content_rendered | safe }}
 
+    {% if comment.photo %}
+    <div class="mb-3">
+      <img src="{{ comment.photo.url }}" class="img-fluid rounded-4 shadow border bg-body-secondary" style="max-width: 100%;" alt="User Photo">
+    </div>
+    {% endif %}
+
     {% if comment.audio %}
     <div class="mb-3">
       <audio class="rounded-4 shadow border bg-body-secondary" style="width:100%" controls>
@@ -217,7 +223,7 @@
 <!-- ======================= @MAIN POST ANSWER FORM ======================= -->
 <div id="uploaderMode">
   <div class="p-4 border bg-body-tertiary rounded-4 shadow">
-    <h4><i class="fas fa-file-lines"></i> Add your answer below:</h4>
+    <h4>Add your answer below:</h4>
     <!-- note: enctype is needed for file upload functionality -->
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -253,11 +259,15 @@
       <!-- ============== @AUDIO, VIDEO, DOCUMENT ATTACH UI ============== -->
       <div id="attach" class="popup" style="display: none;">
         <div class="row mb-4">
-          <div class="col">
+          <div class="col-lg mb-4">
+            <label for="photoForm" class="form-label"><i class="me-2 fas fa-image"></i>Photo [ bmp, gif, jpeg, jpg, png, webp, svg ]</label>
+            <input class="form-control form-control-lg rounded-4 border-2" id="photoForm" type="file" accept="image/*" name="photo"></input>
+          </div>
+          <div class="col-lg mb-4">
             <label for="videoForm" class="form-label"><i class="me-2 fas fa-video"></i>Video [ mp4, avi, mov ]</label>
             <input class="form-control form-control-lg rounded-4 border-2" id="videoForm" type="file" accept=".mp4, .avi, .mov" name="video"></input>
           </div>
-          <div class="col">
+          <div class="col-lg mb-4">
             <label for="audioForm" class="form-label"><i class="me-2 fas fa-music"></i>Audio [ mp3, wav, ogg ]</label>
             <input class="form-control form-control-lg rounded-4 border-2" id="audioForm" type="file" accept=".mp3, .wav, .ogg" name="audio"></input>
           </div>

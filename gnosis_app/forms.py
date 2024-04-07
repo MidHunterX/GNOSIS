@@ -58,9 +58,10 @@ class QuesUpdateForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['content', 'video', 'audio']
+        fields = ['content', 'photo', 'video', 'audio']
         labels = {'content': '' }
         widgets = {
+            'photo': forms.FileInput(attrs={'accept': 'image/*'}),
             'audio': forms.FileInput(attrs={'accept': 'audio/*'}),
             'video': forms.FileInput(attrs={'accept': 'video/*'}),
         }
