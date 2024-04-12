@@ -1,4 +1,5 @@
 {% extends 'gnosis/base.html' %}
+{% load static %}
 {% block content %}
 
   {% block title %}{{block.super}}{% endblock %}
@@ -22,7 +23,7 @@
     </div>
 
     <div class="col p-5 text-center bg-body-secondary border rounded-4 h-50">
-      <p class="text-muted">[ Insert a cool looking image here maybe? ]</p>
+      <img src="{% static '/logo-light.png' %}" width="250">
     </div>
 
   </div>
@@ -32,38 +33,53 @@
 
   <!-- @FEATURES_SECTION -->
   <div class="container-fluid p-5">
+
     <hr>
     <div class="row g-5">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Feature Heading 1. <span class="text-body-secondary">Ease of navigation.</span></h2>
-        <p style="text-align:justify;" class="lead">A Wayland compositor is a fully autonomous Display Server, like Xorg itself. It is not possible to mix’n’match Wayland compositors like you could on Xorg with window managers and compositors. It is also not entirely possible, nor recommended, to try and use all Xorg applications on Wayland.</p>
+      <div class="col">
+        <h2 class="featurette-heading fw-normal lh-1">Viewer/Uploader Modes <span class="text-body-secondary">split selection.</span></h2>
+        <p style="text-align:justify;" class="lead">The split selection screen allows users to seamlessly switch between Viewer and Uploader modes. In Viewer mode, users can browse and consume content, while in Uploader mode, they can contribute new content to the platform. This feature enhances user experience by providing quick and easy access to both modes, making it convenient to consume and contribute content.</p>
       </div>
-      <div style="width:500px; height:400px;" class="col p-5 text-center bg-body-secondary border rounded-4">
-        <p class="text-muted">[ Insert a cool looking image here maybe? ]</p>
-      </div>
+      <img style="width:620px;" src="{% static 'sc_splitscr.jpg' %}"></img>
     </div>
 
     <hr>
     <div class="row g-5">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Feature Heading 2. <span class="text-body-secondary">The Flex 5.</span></h2>
-        <p style="text-align:justify;" class="lead">The Lenovo IdeaPad Flex 5 14ARE05 is a convertible 2-in-1 laptop computer with a 14" screen, AMD Ryzen™ 3/5/7 4000 U-Series Processor, 4GB/8GB/16GB of memory, webcam, microphone, stereo speakers, headphone / microphone combo jack, 802.11ac wireless card with Bluetooth 5.0, 1 x USB-C 3.2 Gen 1 Type-C(supports charging), 2 x USB 3.2 Gen 1 Type-A, 1 x SD card reader, 1 x HDMI 1.4b, 1 x power connector, and a fingerprint reader.</p>
+      <div class="col order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Generative AI Answers <span class="text-body-secondary">for searches.</span></h2>
+        <p style="text-align:justify;" class="lead">Our Generative AI technology enables the platform to provide intelligent and context-aware answers to user queries. This feature goes beyond simple keyword matching, allowing the system to understand the intent behind the question and generate detailed and relevant answers. It enhances the user experience by providing accurate and informative responses tailored to individual queries.</p>
       </div>
-      <div style="width:500px; height:400px;" class="col p-5 text-center bg-body-secondary border rounded-4">
-        <p class="text-muted">[ Insert a cool looking image here maybe? ]</p>
-      </div>
+      <img style="width:620px;" src="{% static 'sc_generate.jpg' %}"></img>
     </div>
 
     <hr>
     <div class="row g-5">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Feature Heading 3. <span class="text-body-secondary">Vice City.</span></h2>
-        <p style="text-align:justify;" class="lead">Grand Theft Auto: Vice City is a 2002 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the fourth main game in the Grand Theft Auto series, following 2001's Grand Theft Auto III, and the sixth entry overall. -Wikipedia</p>
+      <div class="col">
+        <h2 class="featurette-heading fw-normal lh-1">More options <span class="text-body-secondary"> for Multimedia answers.</span></h2>
+        <p style="text-align:justify;" class="lead">The platform supports a wide range of multimedia formats, including video, audio, images, and documents, to provide comprehensive answers. This feature enriches the user experience by offering multimedia content that complements text-based answers, making it easier for users to understand complex topics and concepts.</p>
       </div>
-      <div style="width:500px; height:400px;" class="col p-5 text-center bg-body-secondary border rounded-4">
-        <p class="text-muted">[ Insert a cool looking image here maybe? ]</p>
-      </div>
+      <img style="width:620px;" src="{% static 'sc_moreopts.jpg' %}"></img>
     </div>
+
+    <hr>
+    <div class="row g-5">
+      <div class="col order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Ask questions <span class="text-body-secondary"> to community.</span></h2>
+        <p style="text-align:justify;" class="lead">Users can engage with the platform's community by asking questions and receiving answers from other members. This feature fosters knowledge sharing and collaboration, allowing users to tap into the collective expertise of the community. It encourages active participation and helps users gain insights and perspectives from diverse viewpoints.</p>
+      </div>
+      <img style="width:620px;" src="{% static 'sc_queslist.jpg' %}"></img>
+    </div>
+
+    <hr>
+    <div class="row g-5">
+      <div class="col">
+        <h2 class="featurette-heading fw-normal lh-1">Give suggestions <span class="text-body-secondary">to answers.</span></h2>
+        <p style="text-align:justify;" class="lead">Users can contribute to the platform by providing suggestions to existing answers. This feature allows users to offer feedback on the accuracy, relevance, and clarity of answers, helping to improve the overall quality of content. It promotes a collaborative environment where users can contribute to the continuous improvement of the platform's</p>
+      </div>
+      <img style="width:620px;" src="{% static 'sc_suggestn.jpg' %}"></img>
+    </div>
+
   </div>
+
 
   {% endblock %}
