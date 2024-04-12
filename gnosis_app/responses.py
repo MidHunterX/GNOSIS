@@ -15,12 +15,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 # Google Generative AI POST Request
+# import google.generativeai
 import requests
 # Markdown Renderer
 import markdown
 # Fuzzy Search Logic
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+# System Env
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()  # Loads env var from .env file
 
 
 # =========================== For Initial Testing =========================== #
@@ -126,19 +132,12 @@ def ques_list(request):
                         break
 
             # Query Generative AI for Answer
-            # api_key = os.getenv('GOOGLE_API_KEY')
-            api_key = 'AIzaSyBo_13250kxL6U9C3O5pjVa9CI0FDjLDGM'
+            api_key = getenv('GOOGLE_API_KEY')
             url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
-            headers = {
-                'Content-Type': 'application/json'
-            }
-            data = {
-                "contents": [ { "parts": [ { "text": input_text } ] } ]
-            }
-            # Sending POST request
+            headers = { 'Content-Type': 'application/json' }
+            data = { "contents": [ { "parts": [ { "text": input_text } ] } ] }
+
             try:
-
-
 
 
                 # ================================================= START: TEST
@@ -158,7 +157,14 @@ def ques_list(request):
                 # =================================================== END: TEST
 
 
+                # Generativeai (loops on loopback without if no internet conn.)
+                # google.generativeai.configure(api_key=api_key)
+                # model = google.generativeai.GenerativeModel('gemini-pro')
+                # result = model.generate_content(input_text)
+                # output_text = result.text
 
+
+                # Sending POST request
                 response = requests.post(url, headers=headers, json=data)
             except requests.exceptions.RequestException:
                 output_text = "You seem to be offline. To generate answers, you need internet access"

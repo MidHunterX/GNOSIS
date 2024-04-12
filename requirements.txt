@@ -6,4 +6,5 @@ fuzzywuzzy==0.18.0
 google-generativeai==0.4.1
 Markdown==3.6
 pillow==10.2.0
+python-dotenv==1.0.1
 python-Levenshtein==0.25.0
