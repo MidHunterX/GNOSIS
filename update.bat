@@ -1,3 +1,5 @@
+@echo off
+
 cd %~dp0
 IF EXIST ENV\ (
     call ENV\Scripts\activate.bat
