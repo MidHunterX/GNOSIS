@@ -36,11 +36,16 @@ def test(request):
     return render(request, "landingpage.html")
 
 
+def landingpage(request):
+    return render(request, "landingpage.html")
+
+
 def greetings(request):
     if request.user.is_authenticated:
         return render(request, "greetings.html")
     else:
-        return render(request, "landingpage.html")
+        return HttpResponseRedirect(reverse('gnosis:landingpage'))
+
 
 def goodbye(request):
     username = request.GET.get('username')

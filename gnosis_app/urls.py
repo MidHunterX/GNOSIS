@@ -8,6 +8,7 @@ app_name = 'gnosis'
 urlpatterns = [
     path("test/", responses.test),
     path("", responses.greetings, name="greetings"),
+    path("landingpage/", responses.landingpage, name="landingpage"),
     path('goodbye/',responses.goodbye,name = 'goodbye'),
     path('info/',responses.info,name = 'info'),
 
