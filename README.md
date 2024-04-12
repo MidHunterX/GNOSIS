@@ -69,9 +69,9 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Human readable approximate timestamps
 
 ## TODO List
-- [ ] Illustration for Hero Section
-- [ ] Landing Page Feature List
-- [ ] Attach answer UI within Ask Question form for Uploaders
+- [x] Illustration for Hero Section
+- [x] Landing Page Feature List
+- [x] Attach answer UI within Ask Question form for Uploaders
 - [ ] Tab style multimedia uploading form
 
 
