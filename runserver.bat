@@ -19,6 +19,5 @@ IF EXIST ENV\ (
     echo Virtual environment 'ENV' directory not found.
     echo Using locally installed python instead.
 )
-call ENV\Scripts\activate.bat
 start http://localhost:8000
 python manage.py runserver
