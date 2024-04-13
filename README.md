@@ -1,6 +1,4 @@
-> Self Note: Revoke Gemini API Key after presentation
-
-> Self Note: Enable AI Generation after testing and maintenance
+> Self Note: Revoke API Key after presentation
 
 ![](./assets/header.png)
 
@@ -13,9 +11,8 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - ![](https://geps.dev/progress/100) Concept of operation
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
-- ![](https://geps.dev/progress/90) Backend Server Logic Design and Implementation
+- ![](https://geps.dev/progress/100) Backend Server Logic Design and Implementation
 - ![](https://geps.dev/progress/95) UI/UX Design and Implementation
-- ![](https://geps.dev/progress/50) Blackbox Testing
 
 # 🔧 Project Features
 
@@ -63,43 +60,45 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - [x] Searched question's multimedia answer query options (more option)
 
 ## Optional Features
+
 - [x] Show a welcome page after login
 - [x] Show a goodbye page after logout
 - [x] On goodbye page, redirect users to login page after n seconds
 - [x] Human readable approximate timestamps
 
 ## TODO List
+
 - [x] Illustration for Hero Section
 - [x] Landing Page Feature List
 - [x] Attach answer UI within Ask Question form for Uploaders
 - [ ] Tab style multimedia uploading form
 
-
 # 📦 Technologies Used
 
 | Name                 | Usage                                       |
 | -------------------- | ------------------------------------------- |
-| virtualenv           | Python package virtual environment          |
 | Django               | Python webapp framework                     |
+| virtualenv           | Python package virtual environment          |
+| python-dotenv        | System Environment Variables for Python     |
 | django-crispy-forms  | For all Input Forms                         |
 | crispy-bootstrap5    | Bootstrap for Crispy Forms                  |
 | django-markdownfield | Raw Markdown storage model and renderer     |
 | bleach               | HTML Sanitizier for storing MD to DB        |
 | Bootstrap v5.3       | CSS Framework                               |
-| Fontawesome          | CSS Icons Framework                         |
+| Fontawesome          | CSS Icons Library                           |
 | easymde              | Markdown Editor Frontend for User Input     |
 | fuzzywuzzy           | Fuzzy String Sequence and Pattern detection |
 | python-Levenshtein   | String similarity and distance operations   |
 
 # 🆕 Initializing Project
 
-### Clone the project
+### Step 1: Clone the project
 
 ```sh
 git clone https://github.com/MidHunterX/GNOSIS
 ```
 
-### Initialize Virtual Environment
+### Step 2: Initialize Virtual Environment (Recommended)
 
 Install Python and execute following commands:
 
@@ -108,93 +107,60 @@ python -m pip install virtualenv
 python -m venv ENV
 ```
 
-### Activate Virtual Environment
+### Step 3: Activate Virtual Environment
 
-Powershell
+Using the command based on your current shell
 
 ```sh
+# CMD
+ENV\Scripts\activate.bat
+# Powershell
 .\ENV\Scripts\Activate.ps1
-```
-
-CMD
-
-```sh
-.\ENV\Scripts\activate.bat
-```
-
-Bash and Zsh
-
-```sh
+# Bash and Zsh
 source ENV/bin/activate
-```
-
-Fish
-
-```sh
+# Fish
 source ENV/bin/activate.fish
 ```
 
-### Install Requirements
+### Step 4: Install Requirements
 
 ```sh
 pip install -r requirements.txt
 ```
 
-### Create Admin Account
+### Step 5: Create Admin Account (optional)
 
 ```sh
 python manage.py createsuperuser
 ```
 
-Username: admin <br>
-Email address: admin@gnosis.com <br>
-Password: admin
-
 # 🏃 Running Project
 
-cd into this project and do the following steps
+Execute `runserver.bat` if you are on Windows. <br>
+Or run server manually by doing the following steps:
 
-### Activate Virtual Environment
+### Step 1: Activate Virtual Environment
 
-Powershell
+Using the command based on your current shell
 
 ```sh
+# CMD
+ENV\Scripts\activate.bat
+# Powershell
 .\ENV\Scripts\Activate.ps1
-```
-
-CMD
-
-```sh
-.\ENV\Scripts\activate.bat
-```
-
-Bash and Zsh
-
-```sh
+# Bash and Zsh
 source ENV/bin/activate
-```
-
-Fish
-
-```sh
+# Fish
 source ENV/bin/activate.fish
 ```
 
-### Run Server
+### Step 2: Run Server
 
 ```sh
 python manage.py runserver
 ```
 
-Open 127.0.0.1:8000 in your browser
-
-### Closing Virtual Environment
-
-Press Ctrl+C to close the server and either close the server console window or use the following command
-
-```
-deactivate
-```
+Open [http://localhost:8000](http://localhost:8000) or [http://127.0.0.1:8000](http://127.0.0.1:8000) with your browser
 
 # ⚠️ Problems Faced
 
