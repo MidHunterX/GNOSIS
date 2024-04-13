@@ -143,26 +143,7 @@ def ques_list(request):
             data = { "contents": [ { "parts": [ { "text": input_text } ] } ] }
 
             try:
-
-
-                # ================================================= START: TEST
-                output_text = "This feature is temporarily disabled for testing and maintenance."
-                context = {
-                    'input_text': input_text,
-                    'output_text': output_text,
-                    'ques': ques,
-                    'ques_correct': ques_correct,
-                    'answers': answers,
-                    'ans_photo': ans_photo,
-                    'ans_video': ans_video,
-                    'ans_audio': ans_audio,
-                    'ans_text': ans_text,
-                }
-                return render(request, 'gnosis/ques_generated.html', context = context)
-                # =================================================== END: TEST
-
-
-                # Generativeai (loops on loopback without if no internet conn.)
+                # Generativeai (loops on loopback if no internet conn.)
                 # google.generativeai.configure(api_key=api_key)
                 # model = google.generativeai.GenerativeModel('gemini-pro')
                 # result = model.generate_content(input_text)
