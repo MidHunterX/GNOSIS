@@ -19,8 +19,8 @@ class Question(models.Model):
         ('any', 'Any Type'),
         ('text', 'Text'),
         ('image', 'Image'),
-        ('video', 'Audio'),
-        ('audio', 'Video'),
+        ('video', 'Video'),
+        ('audio', 'Audio'),
     )
 
     DEPARTMENTS = (
