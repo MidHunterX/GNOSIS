@@ -15,6 +15,14 @@ class Question(models.Model):
         ('ml', 'Malayalam'),
     )
 
+    PREFERRED_ANS = (
+        ('any', 'Any Type'),
+        ('text', 'Text'),
+        ('image', 'Image'),
+        ('video', 'Audio'),
+        ('audio', 'Video'),
+    )
+
     DEPARTMENTS = (
         ('gen', 'General'),
         ('cse', 'Computer Science and Engineering'),
@@ -47,6 +55,7 @@ class Question(models.Model):
     updated = models.DateTimeField(auto_now=True)
     language = models.CharField(max_length=10 , choices=LANGUAGES,default='en')
     department = models.CharField(max_length=100 , choices=DEPARTMENTS,default='gen')
+    preferred_ans = models.CharField(max_length=100 , choices=PREFERRED_ANS,default='any')
     restrict_comments = models.BooleanField(default=False)
     favourite_ques = models.ManyToManyField(User,related_name='favourite_ques',blank=True)
 

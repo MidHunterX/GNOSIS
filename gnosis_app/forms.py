@@ -81,7 +81,15 @@ class ProfileUpdateForm(forms.ModelForm):
 class QuestionAskForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['title' , 'body', 'department', 'language', 'restrict_comments']
+        fields = ['title', 'body', 'department', 'language', 'preferred_ans', 'restrict_comments']
+        labels = {
+            'title': 'Title',
+            'body': 'Body',
+            'department': 'Department',
+            'language': 'Preferred Language',
+            'preferred_ans': 'Preferred Answer Type',
+            'restrict_comments': 'Restrict Comments',
+        }
 
 
 class QuesUpdateForm(forms.ModelForm):
