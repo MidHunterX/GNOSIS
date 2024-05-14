@@ -1,5 +1,3 @@
-> Self Note: Revoke API Key after presentation
-
 ![](./assets/header.png)
 
 > For sharing knowledge
@@ -12,7 +10,7 @@ The "GNOSIS-for sharing knowledge" is an ambitious project designed to transform
 - ![](https://geps.dev/progress/100) Requirements elicitation
 - ![](https://geps.dev/progress/100) Database Modelling and Implementation
 - ![](https://geps.dev/progress/100) Backend Server Logic Design and Implementation
-- ![](https://geps.dev/progress/95) UI/UX Design and Implementation
+- ![](https://geps.dev/progress/100) UI/UX Design and Implementation
 
 # 🔧 Project Features
 
