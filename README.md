@@ -126,6 +126,8 @@ source ENV/bin/activate.fish
 pip install -r requirements.txt
 ```
 
+Also, get GeminiAI API Key from ![Google AI Studio](https://aistudio.google.com/app/apikey) and set it up in `.env` file.
+
 ### Step 5: Create Admin Account (optional)
 
 ```sh
